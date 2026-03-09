@@ -1,0 +1,24 @@
+@use '../../styles/variables' as *;
+
+.milestone {
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-8px);
+
+        .node>div:nth-child(2) {
+            border-color: rgba($primary, 0.4);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.node {
+    width: 120px;
+    height: 120px;
+
+    >div {
+        transition: all 0.3s ease;
+    }
+}

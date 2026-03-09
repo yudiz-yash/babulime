@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.accordionItem {
+    transition: all 0.3s ease;
+
+    &.active {
+        border-color: rgba($primary, 0.2);
+        box-shadow: 0 10px 30px rgba(124, 58, 237, 0.05);
+    }
+}
+
+.iconBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

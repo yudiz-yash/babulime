@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #7c3aed;
+    --color-secondary: #9333ea;
+    --color-text-dark: #111827;
+    --color-text-muted: #6b7280;
+    --radius-custom: 16px;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: var(--color-text-dark);
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: inherit;
+}

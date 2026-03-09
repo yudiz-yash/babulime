@@ -1,0 +1,16 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1rem;
+  z-index: 40;
+}
+
+.content {
+  width: min(100%, 36rem);
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.3);
+}

@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.featureCard {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: $radius;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(124, 58, 237, 0.1);
+        border-color: rgba(124, 58, 237, 0.1);
+
+        .iconWrapper {
+            background: $primary;
+            color: white;
+            transform: scale(1.1);
+        }
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: rgba(124, 58, 237, 0.1);
+    color: $primary;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}

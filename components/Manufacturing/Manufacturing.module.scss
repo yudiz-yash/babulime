@@ -1,0 +1,30 @@
+@use '../../styles/variables' as *;
+
+.mfgCard {
+    transition: transform 0.3s ease;
+    padding: 2rem;
+    border-radius: $radius;
+
+    &:hover {
+        transform: translateY(-8px);
+        background: rgba(124, 58, 237, 0.02);
+
+        .iconCircle {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+        }
+    }
+}
+
+.iconCircle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary, $secondary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

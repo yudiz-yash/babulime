@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+
+.certCard {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+        background: white;
+        border-color: rgba($primary, 0.1);
+
+        .badge {
+            background: $primary;
+            color: white;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.badge {
+    transition: all 0.3s ease;
+}
