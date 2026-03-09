@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './IndustryTrust.module.scss';
 import { ChevronDown, Crosshair, ShieldCheck, Factory, TrendingUp } from 'lucide-react';
+import AnimateIn from '@/components/AnimateIn';
 
 const TRUST_DATA = [
     {
@@ -38,43 +39,44 @@ export default function IndustryTrust() {
         <section className="py-24 bg-white">
             <div className="max-w-4xl mx-auto px-6 lg:px-8">
 
-                <div className="text-center mb-16">
+                <AnimateIn animation="fade-up" delay={0} className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Why Industry Trusts Us</h2>
                     <p className="text-gray-600 text-lg">Consistent quality driven by technological superiority and scale.</p>
-                </div>
+                </AnimateIn>
 
                 <div className="space-y-4">
-                    {TRUST_DATA.map((item) => {
+                    {TRUST_DATA.map((item, i) => {
                         const isOpen = openId === item.id;
                         return (
-                            <div
-                                key={item.id}
-                                className={`${styles.accordionItem} ${isOpen ? styles.active : ''} bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
-                                onClick={() => setOpenId(isOpen ? null : item.id)}
-                            >
-                                <div className="flex items-center justify-between p-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className={`${styles.iconBox} ${isOpen ? 'bg-purple-100 text-purple-700' : 'bg-white text-gray-500'} p-3 rounded-xl transition-colors border border-gray-100`}>
-                                            {item.icon}
-                                        </div>
-                                        <h3 className={`font-bold text-lg md:text-xl ${isOpen ? 'text-purple-700' : 'text-gray-800'}`}>
-                                            {item.title}
-                                        </h3>
-                                    </div>
-                                    <ChevronDown
-                                        className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-purple-600' : ''}`}
-                                        size={24}
-                                    />
-                                </div>
-
+                            <AnimateIn key={item.id} animation="fade-up" delay={i * 100}>
                                 <div
-                                    className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-60 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                    className={`${styles.accordionItem} ${isOpen ? styles.active : ''} bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
+                                    onClick={() => setOpenId(isOpen ? null : item.id)}
                                 >
-                                    <p className="text-gray-600 leading-relaxed ml-[68px]">
-                                        {item.description}
-                                    </p>
+                                    <div className="flex items-center justify-between p-6">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`${styles.iconBox} ${isOpen ? 'bg-purple-100 text-purple-700' : 'bg-white text-gray-500'} p-3 rounded-xl transition-colors border border-gray-100`}>
+                                                {item.icon}
+                                            </div>
+                                            <h3 className={`font-bold text-lg md:text-xl ${isOpen ? 'text-purple-700' : 'text-gray-800'}`}>
+                                                {item.title}
+                                            </h3>
+                                        </div>
+                                        <ChevronDown
+                                            className={`text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-purple-600' : ''}`}
+                                            size={24}
+                                        />
+                                    </div>
+
+                                    <div
+                                        className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-60 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                    >
+                                        <p className="text-gray-600 leading-relaxed ml-[68px]">
+                                            {item.description}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </AnimateIn>
                         );
                     })}
                 </div>

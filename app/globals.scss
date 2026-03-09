@@ -13,8 +13,129 @@
     --foreground: var(--color-text-dark);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: var(--foreground);
     background: var(--background);
     font-family: inherit;
+}
+
+/* ── Animation Keyframes ───────────────────────────────── */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.82); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(0px) scale(1.5); }
+    50%       { transform: translateY(-18px) scale(1.5); }
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmerText {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes drawLineX {
+    from { width: 0; opacity: 0; }
+    to   { width: 100%; opacity: 1; }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.35); }
+    50%       { box-shadow: 0 0 0 16px rgba(124, 58, 237, 0); }
+}
+
+@keyframes ctaBgPulse {
+    0%, 100% { background-position: 0% 50%; }
+    50%       { background-position: 100% 50%; }
+}
+
+/* ── Base (hidden) states ──────────────────────────────── */
+
+.anim-fade-up,
+.anim-fade-down,
+.anim-fade-left,
+.anim-fade-right,
+.anim-scale-in,
+.anim-fade-in {
+    opacity: 0;
+}
+
+/* ── Triggered (in-view) states ──────────────────────── */
+
+.anim-fade-up.in-view    { animation: fadeInUp    0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-down.in-view  { animation: fadeInDown  0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-left.in-view  { animation: fadeInLeft  0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-fade-right.in-view { animation: fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-scale-in.in-view   { animation: scaleIn     0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.anim-fade-in.in-view    { animation: fadeIn      0.8s ease both; }
+
+/* ── Continuous animations ──────────────────────────── */
+
+.anim-float {
+    animation: floatY 5s ease-in-out infinite;
+}
+
+.anim-gradient-bg {
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+}
+
+.anim-shimmer-text {
+    background-size: 200% auto;
+    animation: shimmerText 4s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.anim-pulse-glow {
+    animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ── Timeline draw line ─────────────────────────────── */
+
+.anim-draw-line {
+    width: 0;
+    opacity: 0;
+    transition: none;
+}
+
+.anim-draw-line.in-view {
+    animation: drawLineX 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }

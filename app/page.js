@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar/Navbar";
+import Banner from "@/components/Banner/Banner";
 import Hero from "@/components/Hero/Hero";
 import About from "@/components/About/About";
 import Features from "@/components/Features/Features";
@@ -15,8 +16,12 @@ import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col pt-16 scroll-smooth">
+    <main className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar />
+      {/* Banner sits directly under the fixed navbar */}
+      <div className="pt-20">
+        <Banner />
+      </div>
       <Hero />
       <About />
       <Features />
