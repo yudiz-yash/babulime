@@ -1,3 +1,71 @@
 @use '../../styles/variables' as *;
 
-// Footer specific styles if needed. Most is handled by Tailwind.
+/* ── Base follow button ───────────────────────────────── */
+.socialBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 9px 16px 9px 10px;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    width: fit-content;
+    border: none;
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* ── Coloured icon badge inside the button ────────────── */
+.socialIconWrap {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+}
+
+/* Instagram — official gradient */
+.btnInstagram {
+    background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
+}
+
+.iconInstagram {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Facebook — official blue */
+.btnFacebook {
+    background: #1877f2;
+}
+
+.iconFacebook {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Bottom bar icon links ────────────────────────────── */
+.iconLink {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.22s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.15);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+}

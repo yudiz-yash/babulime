@@ -1,6 +1,7 @@
 import styles from './Branding.module.scss';
 import { Newspaper, Trophy, Store, Megaphone, Users } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
+import { cat11, cat75, cat76, cat73 } from '@/assets';
 
 const SHOWCASE_ITEMS = [
     { id: 1, icon: <Newspaper size={28} />, title: 'Media Coverage', desc: 'Featured in regional publications including Gujarat Samachar.' },
@@ -36,10 +37,14 @@ export default function Branding() {
                 </div>
 
                 <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[1, 2, 3, 4].map((i) => (
+                    {[cat11, cat75, cat76, cat73].map((img, i) => (
                         <AnimateIn key={i} animation="fade-up" delay={i * 80}>
-                            <div className="aspect-square bg-gray-100 rounded-xl flex items-center justify-center border border-gray-200 text-gray-400 hover:border-purple-200 hover:bg-purple-50/30 transition-colors duration-300">
-                                Gallery Image {i}
+                            <div className="aspect-square rounded-xl overflow-hidden border border-gray-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                                <img
+                                    src={img.src}
+                                    alt={`Gallery ${i + 1}`}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
+                                />
                             </div>
                         </AnimateIn>
                     ))}

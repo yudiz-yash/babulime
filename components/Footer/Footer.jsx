@@ -1,7 +1,24 @@
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
+
+const SOCIAL = [
+    {
+        Icon: Instagram,
+        label: 'Instagram',
+        href: 'https://instagram.com/babulimeindia?igshid=MzRlODBiNWFlZA==',
+        btnClass: styles.btnInstagram,
+        iconClass: styles.iconInstagram,
+    },
+    {
+        Icon: Facebook,
+        label: 'Facebook',
+        href: 'https://www.facebook.com/BABULIMEINDIA',
+        btnClass: styles.btnFacebook,
+        iconClass: styles.iconFacebook,
+    },
+];
 
 export default function Footer() {
     return (
@@ -17,6 +34,24 @@ export default function Footer() {
                         <p className="text-gray-400 leading-relaxed text-sm pr-4">
                             Premium grade limestone and calcium carbonate derivatives tailored for superior industrial performance globally.
                         </p>
+
+                        {/* Social follow buttons */}
+                        <div className="flex flex-col gap-3 pt-2">
+                            {SOCIAL.map(({ Icon, label, href, btnClass, iconClass }) => (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`${styles.socialBtn} ${btnClass}`}
+                                >
+                                    <span className={`${styles.socialIconWrap} ${iconClass}`}>
+                                        <Icon size={16} />
+                                    </span>
+                                    <span>Follow us on {label}</span>
+                                </a>
+                            ))}
+                        </div>
                     </AnimateIn>
 
                     <AnimateIn animation="fade-up" delay={100}>
@@ -42,13 +77,12 @@ export default function Footer() {
                     <AnimateIn animation="fade-up" delay={300}>
                         <h4 className="text-lg font-bold mb-6 text-white">Contact</h4>
                         <ul className="space-y-4 text-sm text-gray-400">
-                            <li>123 Mining Estate, Industrial Area</li>
-                            <li>Rajasthan, India 302022</li>
+                            <li>Rajkot, Gujarat, India</li>
                             <li className="pt-2">
-                                <a href="mailto:info@babulime.com" className="hover:text-purple-400 transition-colors">info@babulime.com</a>
+                                <a href="mailto:babulimepvtltd87@gmail.com" className="hover:text-purple-400 transition-colors">babulimepvtltd87@gmail.com</a>
                             </li>
                             <li>
-                                <a href="tel:+919876543210" className="hover:text-purple-400 transition-colors">+91 98765 43210</a>
+                                <a href="tel:+919227706516" className="hover:text-purple-400 transition-colors">+91-9227706516</a>
                             </li>
                         </ul>
                     </AnimateIn>
@@ -61,15 +95,17 @@ export default function Footer() {
                         &copy; {new Date().getFullYear()} Babu Lime & Minerals. All rights reserved.
                     </p>
 
-                    <div className="flex items-center gap-6">
-                        {[
-                            { Icon: Facebook, label: 'Facebook' },
-                            { Icon: Twitter, label: 'Twitter' },
-                            { Icon: Linkedin, label: 'LinkedIn' },
-                            { Icon: Instagram, label: 'Instagram' },
-                        ].map(({ Icon, label }) => (
-                            <a key={label} href="#" className="text-gray-500 hover:text-purple-400 hover:-translate-y-1 transition-all duration-200" aria-label={label}>
-                                <Icon size={20} />
+                    <div className="flex items-center gap-4">
+                        {SOCIAL.map(({ Icon, label, href, iconClass }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`${styles.iconLink} ${iconClass}`}
+                                aria-label={label}
+                            >
+                                <Icon size={19} />
                             </a>
                         ))}
                     </div>

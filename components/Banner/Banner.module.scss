@@ -4,62 +4,25 @@
     position: relative;
     overflow: hidden;
 
-    /* Override slick defaults to remove extra margin/padding */
     :global(.slick-slider),
     :global(.slick-list),
-    :global(.slick-track) {
+    :global(.slick-track),
+    :global(.slick-slide),
+    :global(.slick-slide > div) {
         height: 100%;
-    }
-
-    /* Dots */
-    :global(.slick-dots) {
-        bottom: 20px;
-        z-index: 10;
-
-        li button::before {
-            color: #ffffff;
-            opacity: 0.6;
-            font-size: 10px;
-        }
-
-        li.slick-active button::before {
-            color: #ffffff;
-            opacity: 1;
-        }
-    }
-
-    /* Arrows */
-    :global(.slick-prev),
-    :global(.slick-next) {
-        z-index: 10;
-        width: 44px;
-        height: 44px;
-
-        &::before {
-            font-size: 28px;
-            opacity: 0.85;
-        }
-    }
-
-    :global(.slick-prev) {
-        left: 20px;
-    }
-
-    :global(.slick-next) {
-        right: 20px;
     }
 }
 
-/* ── Individual slide ───────────────────────────────────── */
+/* ── Slide ───────────────────────────────────────────────── */
 .slide {
     position: relative;
-    height: 520px;
+    /* 80px = fixed navbar height */
+    height: calc(100vh - 80px);
     width: 100%;
     overflow: hidden;
 
-    @media (max-width: 768px) {
-        height: 320px;
-    }
+    @media (max-width: 1024px) { height: 500px; }
+    @media (max-width: 640px)  { height: 300px; }
 }
 
 .slideImg {
@@ -71,62 +34,59 @@
     object-position: center;
 }
 
-/* Placeholder gradient shown until real images are added */
-.slidePlaceholder {
+/* subtle gradient at the bottom so the next section blends in */
+.bottomFade {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 40%, #a855f7 70%, #6d28d9 100%);
-    background-size: 300% 300%;
-    animation: gradientShift 6s ease infinite;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(249, 250, 251, 0.6));
+    pointer-events: none;
 }
 
-@keyframes gradientShift {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+/* ── Custom themed dots ──────────────────────────────────── */
+.dots {
+    bottom: 18px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-/* ── Dark overlay for text readability ──────────────────── */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.15) 0%,
-        rgba(0, 0, 0, 0.45) 100%
-    );
-    display: flex;
-    align-items: flex-end;
-    padding: 48px 64px;
+    /* every dot button */
+    :global(li) {
+        width: auto;
+        height: auto;
+        margin: 0;
 
-    @media (max-width: 768px) {
-        padding: 28px 24px;
+        :global(button) {
+            width: 8px;
+            height: 8px;
+            padding: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            display: block;
+
+            /* hide slick's default ::before pseudo text */
+            &::before {
+                display: none;
+            }
+        }
+
+        /* active dot — wider pill, solid purple-ish white */
+        &:global(.slick-active) {
+            :global(button) {
+                width: 28px;
+                border-radius: 4px;
+                background: #ffffff;
+                border-color: #ffffff;
+                box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+            }
+        }
     }
-}
-
-/* ── Text content ───────────────────────────────────────── */
-.textBox {
-    max-width: 700px;
-    animation: slideTextIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes slideTextIn {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.heading {
-    font-size: clamp(1.6rem, 4vw, 2.8rem);
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.2;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-}
-
-.sub {
-    font-size: clamp(0.95rem, 2vw, 1.2rem);
-    color: rgba(255, 255, 255, 0.88);
-    font-weight: 500;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
 }

@@ -15,12 +15,18 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
     color: var(--foreground);
     background: var(--background);
     font-family: inherit;
+    overflow-x: hidden;
+}
+
+a, button, [role="button"] {
+    cursor: pointer;
 }
 
 /* ── Animation Keyframes ───────────────────────────────── */
@@ -56,8 +62,8 @@ body {
 }
 
 @keyframes floatY {
-    0%, 100% { transform: translateY(0px) scale(1.5); }
-    50%       { transform: translateY(-18px) scale(1.5); }
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-18px); }
 }
 
 @keyframes gradientShift {
