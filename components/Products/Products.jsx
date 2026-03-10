@@ -111,11 +111,11 @@ export default function Products() {
     const active = CATEGORIES.find(c => c.id === activeId);
 
     return (
-        <section id="products" className="py-24 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="products" className="py-12 md:py-24 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
                 {/* Header */}
-                <AnimateIn animation="fade-up" className="text-center mb-12">
+                <AnimateIn animation="fade-up" className="text-center mb-6 md:mb-12">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">PRODUCT PORTFOLIO</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Our Products</h2>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">

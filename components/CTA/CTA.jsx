@@ -4,12 +4,12 @@ import AnimateIn from '@/components/AnimateIn';
 
 export default function CTA() {
     return (
-        <section className={`py-24 ${styles.ctaSection}`}>
+        <section className={`py-12 md:py-24 ${styles.ctaSection}`}>
             <AnimateIn
                 animation="scale-in"
                 delay={0}
                 threshold={0.2}
-                className="max-w-4xl mx-auto px-6 text-center text-white space-y-8 relative z-10"
+                className="max-w-4xl mx-auto px-4 md:px-6 text-center text-white space-y-5 md:space-y-8 relative z-10"
             >
                 <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
                     Distributor & Business Inquiries Welcome

@@ -6,7 +6,7 @@ import CountUp from '@/components/CountUp/CountUp';
 
 export default function Hero() {
     return (
-        <section className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+        <section className="relative overflow-hidden pt-10 pb-10 md:pt-20 md:pb-16 lg:pt-32 lg:pb-24">
             <div className="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
                 {/* Left Side: Text and Stats — 8 columns */}

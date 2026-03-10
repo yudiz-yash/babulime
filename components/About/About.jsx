@@ -12,11 +12,11 @@ const CHECK_ITEMS = [
 
 export default function About() {
     return (
-        <section id="about" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <section id="about" className="py-12 md:py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                 {/* Left Side: Content */}
-                <AnimateIn animation="fade-left" delay={0} className="order-2 lg:order-1 space-y-8">
+                <AnimateIn animation="fade-left" delay={0} className="order-2 lg:order-1 space-y-5 md:space-y-8">
                     <div>
                         <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">ABOUT BABU LIME</span>
                         <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">

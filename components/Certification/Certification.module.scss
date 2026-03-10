@@ -1,7 +1,11 @@
 @use '../../styles/variables' as *;
 
 .section {
-    padding: 96px 0;
+    padding: 48px 0;
+
+    @media (min-width: 768px) {
+        padding: 96px 0;
+    }
     background: linear-gradient(180deg, #faf7ff 0%, #ffffff 100%);
     position: relative;
     overflow: hidden;
@@ -53,9 +57,13 @@
 .certsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 16px;
     max-width: 860px;
     margin: 0 auto;
+
+    @media (min-width: 768px) {
+        gap: 32px;
+    }
 
     @media (max-width: 640px) {
         grid-template-columns: 1fr;

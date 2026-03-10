@@ -4,11 +4,11 @@ import AnimateIn from '@/components/AnimateIn';
 
 export default function Distribution() {
     return (
-        <section id="network" className="py-24 bg-gray-50 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
+        <section id="network" className="py-12 md:py-24 bg-gray-50 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
                 {/* Left Side */}
-                <AnimateIn animation="fade-left" delay={0} className="space-y-8">
+                <AnimateIn animation="fade-left" delay={0} className="space-y-5 md:space-y-8">
                     <div>
                         <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">DISTRIBUTION NETWORK</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
@@ -19,7 +19,7 @@ export default function Distribution() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
                         {[
                             { icon: <Store className="text-purple-600 flex-shrink-0" size={28} />, value: '80,000+', label: 'Retail Outlets', span: false },
                             { icon: <Building2 className="text-purple-600 flex-shrink-0" size={28} />, value: '4000+', label: 'Wholesale Outlets', span: false },

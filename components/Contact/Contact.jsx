@@ -37,16 +37,16 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="contact" className="py-12 md:py-24 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-                <AnimateIn animation="fade-up" className="text-center mb-16">
+                <AnimateIn animation="fade-up" className="text-center mb-8 md:mb-16">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">GET IN TOUCH</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Contact Us</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">Have a question or want to discuss a partnership? We'd love to hear from you.</p>
                 </AnimateIn>
 
-                <div className="grid lg:grid-cols-5 gap-8 items-start">
+                <div className="grid lg:grid-cols-5 gap-4 md:gap-8 items-start">
 
                     {/* Left info panel */}
                     <AnimateIn animation="fade-left" className="lg:col-span-2">

@@ -13,19 +13,19 @@ const SHOWCASE_ITEMS = [
 
 export default function Branding() {
     return (
-        <section className="py-24 bg-white border-y border-gray-100">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-12 md:py-24 bg-white border-y border-gray-100">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-                <AnimateIn animation="fade-up" delay={0} className="text-center mb-16 max-w-3xl mx-auto">
+                <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16 max-w-3xl mx-auto">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">Brand Showcase</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Market Visibility</h2>
                     <p className="text-lg text-gray-600">From regional recognition to large-scale retail branding, Babu Lime maintains strong market visibility through varied channels.</p>
                 </AnimateIn>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     {SHOWCASE_ITEMS.map((item, i) => (
                         <AnimateIn key={item.id} animation="scale-in" delay={i * 100}>
-                            <div className="bg-gray-50 border border-gray-100 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full">
+                            <div className="bg-gray-50 border border-gray-100 p-5 md:p-8 rounded-2xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full">
                                 <div className="w-14 h-14 bg-purple-100 text-purple-700 flex items-center justify-center rounded-xl mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
                                     {item.icon}
                                 </div>
@@ -36,7 +36,7 @@ export default function Branding() {
                     ))}
                 </div>
 
-                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                     {[cat11, cat75, cat76, cat73].map((img, i) => (
                         <AnimateIn key={i} animation="fade-up" delay={i * 80}>
                             <div className="aspect-square rounded-xl overflow-hidden border border-gray-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">

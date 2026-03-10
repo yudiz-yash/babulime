@@ -15,7 +15,7 @@ export default function Certification() {
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
                 {/* Header */}
-                <AnimateIn animation="fade-up" className="text-center mb-14">
+                <AnimateIn animation="fade-up" className="text-center mb-8 md:mb-14">
                     <div className={styles.badgeRow}>
                         <div className={styles.iconBadge}>
                             <ShieldCheck size={22} />

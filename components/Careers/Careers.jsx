@@ -65,11 +65,11 @@ export default function Careers() {
     };
 
     return (
-        <section id="careers" className="py-24 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="careers" className="py-12 md:py-24 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
                 {/* Section header */}
-                <AnimateIn animation="fade-up" className="mb-16">
+                <AnimateIn animation="fade-up" className="mb-8 md:mb-16">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">CAREERS</span>
                     <div className="grid lg:grid-cols-2 gap-6 items-end">
                         <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">Build Your Career With Us</h2>
@@ -78,7 +78,7 @@ export default function Careers() {
                 </AnimateIn>
 
                 {/* Values + Positions */}
-                <div className="grid lg:grid-cols-2 gap-12 mb-16">
+                <div className="grid lg:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-16">
 
                     {/* Values */}
                     <AnimateIn animation="fade-left">

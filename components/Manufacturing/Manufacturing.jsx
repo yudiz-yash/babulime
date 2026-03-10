@@ -13,10 +13,10 @@ const MFG_STEPS = [
 
 export default function Manufacturing() {
     return (
-        <section id="quality" className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section id="quality" className="py-12 md:py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-                <AnimateIn animation="fade-up" delay={0} className="text-center mb-16">
+                <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">MANUFACTURING EXCELLENCE</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Industrial Processing Excellence</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">Our facility in Rajkot operates under controlled industrial systems designed to ensure uniform processing, consistent quality, hygienic handling, and full process transparency.</p>
@@ -56,8 +56,8 @@ export default function Manufacturing() {
 
                 {/* Quality & Compliance block */}
                 <AnimateIn animation="fade-up" delay={200}>
-                    <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-100 mt-6">
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="bg-gray-50 rounded-2xl p-5 md:p-8 lg:p-12 border border-gray-100 mt-6">
+                        <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
                             <div>
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality & Compliance</h3>
                                 <p className="text-gray-600 mb-6">Quality is non-negotiable. Continuous internal audits ensure standardization across all batches. Every product is laboratory tested before market release.</p>

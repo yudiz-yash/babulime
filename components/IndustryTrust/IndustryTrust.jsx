@@ -36,10 +36,10 @@ export default function IndustryTrust() {
     const [openId, setOpenId] = useState(1);
 
     return (
-        <section className="py-24 bg-white">
-            <div className="max-w-4xl mx-auto px-6 lg:px-8">
+        <section className="py-12 md:py-24 bg-white">
+            <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
 
-                <AnimateIn animation="fade-up" delay={0} className="text-center mb-16">
+                <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Why Industry Trusts Us</h2>
                     <p className="text-gray-600 text-lg">Consistent quality driven by technological superiority and scale.</p>
                 </AnimateIn>
@@ -53,7 +53,7 @@ export default function IndustryTrust() {
                                     className={`${styles.accordionItem} ${isOpen ? styles.active : ''} bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
                                     onClick={() => setOpenId(isOpen ? null : item.id)}
                                 >
-                                    <div className="flex items-center justify-between p-6">
+                                    <div className="flex items-center justify-between p-4 md:p-6">
                                         <div className="flex items-center gap-4">
                                             <div className={`${styles.iconBox} ${isOpen ? 'bg-purple-100 text-purple-700' : 'bg-white text-gray-500'} p-3 rounded-xl transition-colors border border-gray-100`}>
                                                 {item.icon}
@@ -69,7 +69,7 @@ export default function IndustryTrust() {
                                     </div>
 
                                     <div
-                                        className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-60 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                        className={`px-4 md:px-6 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-60 pb-4 md:pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                                     >
                                         <p className="text-gray-600 leading-relaxed ml-[68px]">
                                             {item.description}

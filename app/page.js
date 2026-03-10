@@ -21,7 +21,7 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar />
       {/* Banner sits directly under the fixed navbar */}
-      <div className="pt-20">
+      <div className="pt-[100px]">
         <Banner />
       </div>
       <Hero />

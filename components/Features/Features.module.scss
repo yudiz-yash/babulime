@@ -3,8 +3,12 @@
 
 .featureCard {
     background: white;
-    padding: 2.5rem 2rem;
+    padding: 1.5rem 1.25rem;
     border-radius: $radius;
+
+    @media (min-width: 768px) {
+        padding: 2.5rem 2rem;
+    }
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(0, 0, 0, 0.02);
@@ -34,6 +38,10 @@
     border-radius: 16px;
     background: rgba(124, 58, 237, 0.1);
     color: $primary;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+        margin-bottom: 1.5rem;
+    }
     transition: all 0.3s ease;
 }

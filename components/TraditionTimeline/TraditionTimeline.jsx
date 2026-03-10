@@ -30,10 +30,10 @@ const MILESTONES = [
 
 export default function TraditionTimeline() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section className="py-12 md:py-24 bg-white relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-                <AnimateIn animation="fade-up" delay={0} className="text-center mb-20">
+                <AnimateIn animation="fade-up" delay={0} className="text-center mb-10 md:mb-20">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">Our Legacy</span>
                     <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Rooted in Indian Tradition</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">The use of natural lime has long been part of traditional Indian mouth freshener preparations across generations.</p>
@@ -47,7 +47,7 @@ export default function TraditionTimeline() {
                         className="hidden md:block absolute top-[60px] left-0 h-[2px] bg-gradient-to-r from-purple-100 via-purple-400 to-purple-100"
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 text-center relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center relative z-10">
                         {MILESTONES.map((m, i) => (
                             <AnimateIn key={i} animation="fade-up" delay={i * 160} className={`flex flex-col items-center ${styles.milestone}`}>
                                 <div className={`${styles.node} mb-6 flex items-center justify-center relative`}>
