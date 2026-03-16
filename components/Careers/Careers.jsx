@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Careers.module.scss';
 import { CheckCircle2, ArrowRight, Send, Loader, CheckCircle, AlertCircle, Paperclip, X } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
-const POSITIONS = [
-    { id: 1, title: 'Production Supervisor', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
-    { id: 2, title: 'Quality Analyst', department: 'Quality Assurance', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
-    { id: 3, title: 'Sales Executive — Gujarat Region', department: 'Sales & Distribution', location: 'Gujarat (Multi-City)', type: 'Full-time', isNew: false },
-    { id: 4, title: 'Packaging Machine Operator', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: false },
+const STATIC_POSITIONS = [
+    { _id: '1', title: 'Production Supervisor', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
+    { _id: '2', title: 'Quality Analyst', department: 'Quality Assurance', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
+    { _id: '3', title: 'Sales Executive — Gujarat Region', department: 'Sales & Distribution', location: 'Gujarat (Multi-City)', type: 'Full-time', isNew: false },
+    { _id: '4', title: 'Packaging Machine Operator', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: false },
 ];
 
 const VALUES = ['Integrity', 'Structured Growth', 'Continuous Learning', 'Performance Recognition'];
@@ -24,11 +24,21 @@ const EXPERIENCE_OPTIONS = [
 
 const INITIAL = { name: '', email: '', phone: '', position: '', experience: '', coverLetter: '' };
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 export default function Careers() {
+    const [positions, setPositions] = useState(STATIC_POSITIONS);
     const [form, setForm]       = useState(INITIAL);
     const [resume, setResume]   = useState(null);
     const [status, setStatus]   = useState('idle'); // idle | loading | success | error
     const [errorMsg, setErrorMsg] = useState('');
+
+    useEffect(() => {
+        fetch(`${API_URL}/careers/positions`)
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d && d.length > 0) setPositions(d); })
+            .catch(() => {});
+    }, []);
 
     const handleChange = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
@@ -52,7 +62,7 @@ export default function Careers() {
         if (resume) fd.append('resume', resume);
 
         try {
-            const res = await fetch('/api/career', { method: 'POST', body: fd });
+            const res = await fetch(`${API_URL}/careers/applications`, { method: 'POST', body: fd });
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Something went wrong.');
             setStatus('success');
@@ -84,7 +94,7 @@ export default function Careers() {
                     <AnimateIn animation="fade-up">
                         <h3 className="text-xl font-bold text-gray-900 mb-5">What We Value</h3>
                         <div className="grid grid-cols-2 gap-4 mb-8">
-                            {VALUES.map((val, i) => (
+                            {VALUES.map((val) => (
                                 <div key={val} className="flex items-center gap-2">
                                     <CheckCircle2 className="text-purple-600 flex-shrink-0" size={20} />
                                     <span className="text-gray-700 font-medium">{val}</span>
@@ -104,9 +114,9 @@ export default function Careers() {
                     <AnimateIn animation="fade-up" delay={100}>
                         <h3 className="text-xl font-bold text-gray-900 mb-5">Open Positions</h3>
                         <div className="space-y-3">
-                            {POSITIONS.map((pos, i) => (
+                            {positions.map((pos) => (
                                 <button
-                                    key={pos.id}
+                                    key={pos._id}
                                     onClick={() => handlePosition(pos.title)}
                                     className={`w-full text-left group border rounded-2xl p-5 transition-all duration-300 flex items-center justify-between gap-4 cursor-pointer ${
                                         form.position === pos.title
@@ -137,7 +147,7 @@ export default function Careers() {
                     </AnimateIn>
                 </div>
 
-                {/* ── Application Form ────────────────────────────── */}
+                {/* Application Form */}
                 <AnimateIn animation="fade-up" delay={150}>
                     <div id="career-form" className={styles.formCard}>
                         <div className="mb-8">
@@ -178,8 +188,8 @@ export default function Careers() {
                                         <label>Position Applying For <span className={styles.req}>*</span></label>
                                         <select name="position" value={form.position} onChange={handleChange} required>
                                             <option value="">Select a position</option>
-                                            {POSITIONS.map(p => (
-                                                <option key={p.id} value={p.title}>{p.title}</option>
+                                            {positions.map(p => (
+                                                <option key={p._id} value={p.title}>{p.title}</option>
                                             ))}
                                         </select>
                                     </div>
@@ -199,7 +209,6 @@ export default function Careers() {
                                     <textarea name="coverLetter" value={form.coverLetter} onChange={handleChange} placeholder="Tell us why you're a great fit for this role..." rows={4} />
                                 </div>
 
-                                {/* Resume upload */}
                                 <div className={styles.field}>
                                     <label>Resume / CV</label>
                                     {resume ? (

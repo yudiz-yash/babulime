@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,20 +10,20 @@ import {
     slide8, slide9, slide10, slide11, slide12, slide13,
 } from '@/assets';
 
-const SLIDES = [
-    { id: 1,  src: slide1  },
-    { id: 2,  src: slide2  },
-    { id: 3,  src: slide3  },
-    { id: 4,  src: slide4  },
-    { id: 5,  src: slide5  },
-    { id: 6,  src: slide6  },
-    { id: 7,  src: slide7  },
-    { id: 8,  src: slide8  },
-    { id: 9,  src: slide9  },
-    { id: 10, src: slide10 },
-    { id: 11, src: slide11 },
-    { id: 12, src: slide12 },
-    { id: 13, src: slide13 },
+const STATIC_SLIDES = [
+    { id: 1,  imageUrl: slide1.src,  alt: 'Babu Lime slide 1' },
+    { id: 2,  imageUrl: slide2.src,  alt: 'Babu Lime slide 2' },
+    { id: 3,  imageUrl: slide3.src,  alt: 'Babu Lime slide 3' },
+    { id: 4,  imageUrl: slide4.src,  alt: 'Babu Lime slide 4' },
+    { id: 5,  imageUrl: slide5.src,  alt: 'Babu Lime slide 5' },
+    { id: 6,  imageUrl: slide6.src,  alt: 'Babu Lime slide 6' },
+    { id: 7,  imageUrl: slide7.src,  alt: 'Babu Lime slide 7' },
+    { id: 8,  imageUrl: slide8.src,  alt: 'Babu Lime slide 8' },
+    { id: 9,  imageUrl: slide9.src,  alt: 'Babu Lime slide 9' },
+    { id: 10, imageUrl: slide10.src, alt: 'Babu Lime slide 10' },
+    { id: 11, imageUrl: slide11.src, alt: 'Babu Lime slide 11' },
+    { id: 12, imageUrl: slide12.src, alt: 'Babu Lime slide 12' },
+    { id: 13, imageUrl: slide13.src, alt: 'Babu Lime slide 13' },
 ];
 
 const slickSettings = {
@@ -41,18 +42,26 @@ const slickSettings = {
 };
 
 export default function Banner() {
+    const [slides, setSlides] = useState(STATIC_SLIDES);
+
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/banner`)
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d && d.length > 0) setSlides(d); })
+            .catch(() => {});
+    }, []);
+
     return (
         <div className={styles.bannerWrapper}>
             <Slider {...slickSettings}>
-                {SLIDES.map((slide) => (
-                    <div key={slide.id}>
+                {slides.map((slide, i) => (
+                    <div key={slide._id || slide.id || i}>
                         <div className={styles.slide}>
                             <img
-                                src={slide.src.src}
-                                alt={`Babu Lime slide ${slide.id}`}
+                                src={slide.imageUrl}
+                                alt={slide.alt || `Babu Lime slide ${i + 1}`}
                                 className={styles.slideImg}
                             />
-                            {/* subtle bottom gradient for blending */}
                             <div className={styles.bottomFade} />
                         </div>
                     </div>

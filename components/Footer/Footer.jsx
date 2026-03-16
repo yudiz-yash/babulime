@@ -1,26 +1,37 @@
+"use client";
+
+import { useEffect, useState } from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
-const SOCIAL = [
-    {
-        Icon: Instagram,
-        label: 'Instagram',
-        href: 'https://instagram.com/babulimeindia?igshid=MzRlODBiNWFlZA==',
-        btnClass: styles.btnInstagram,
-        iconClass: styles.iconInstagram,
-    },
-    {
-        Icon: Facebook,
-        label: 'Facebook',
-        href: 'https://www.facebook.com/BABULIMEINDIA',
-        btnClass: styles.btnFacebook,
-        iconClass: styles.iconFacebook,
-    },
-];
+const STATIC = {
+    description: "India's leading processor of food-grade natural white lime. Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India. Since 1987.",
+    address: 'Opp. Saurashtra Paper Mill,\nNavagam-Anandpar Road,\nRajkot – 360003, Gujarat, India',
+    email: 'babulimepvtltd87@gmail.com',
+    phones: ['+91-9227706516', '0281-2701665'],
+    instagramUrl: 'https://instagram.com/babulimeindia?igshid=MzRlODBiNWFlZA==',
+    facebookUrl: 'https://www.facebook.com/BABULIMEINDIA',
+};
 
 export default function Footer() {
+    const [data, setData] = useState(STATIC);
+
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/settings/footer`)
+            .then(r => r.ok ? r.json() : null)
+            .then(d => { if (d) setData(d); })
+            .catch(() => {});
+    }, []);
+
+    const SOCIAL = [
+        { Icon: Instagram, label: 'Instagram', href: data.instagramUrl, btnClass: styles.btnInstagram, iconClass: styles.iconInstagram },
+        { Icon: Facebook,  label: 'Facebook',  href: data.facebookUrl,  btnClass: styles.btnFacebook,  iconClass: styles.iconFacebook  },
+    ];
+
+    const addressLines = (data.address || '').split('\n');
+
     return (
         <footer className="bg-gray-900 text-white pt-12 pb-6 md:pt-24 md:pb-8 border-t border-gray-800">
             <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -31,11 +42,8 @@ export default function Footer() {
                         <Link href="/" className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600 block">
                             BabuLime
                         </Link>
-                        <p className="text-gray-400 leading-relaxed text-sm pr-4">
-                            India's leading processor of food-grade natural white lime. Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India. Since 1987.
-                        </p>
+                        <p className="text-gray-400 leading-relaxed text-sm pr-4">{data.description}</p>
 
-                        {/* Social follow buttons */}
                         <div className="flex flex-col gap-3 pt-2">
                             {SOCIAL.map(({ Icon, label, href, btnClass, iconClass }) => (
                                 <a
@@ -77,20 +85,24 @@ export default function Footer() {
                     <AnimateIn animation="fade-up" delay={300}>
                         <h4 className="text-lg font-bold mb-6 text-white">Contact</h4>
                         <ul className="space-y-4 text-sm text-gray-400">
-                            <li>Opp. Saurashtra Paper Mill,<br />Navagam-Anandpar Road,<br />Rajkot – 360003, Gujarat, India</li>
+                            <li>
+                                {addressLines.map((line, i) => (
+                                    <span key={i}>{line}{i < addressLines.length - 1 && <br />}</span>
+                                ))}
+                            </li>
                             <li className="pt-2">
-                                <a href="mailto:babulimepvtltd87@gmail.com" className="hover:text-purple-400 transition-colors">babulimepvtltd87@gmail.com</a>
+                                <a href={`mailto:${data.email}`} className="hover:text-purple-400 transition-colors">{data.email}</a>
                             </li>
                             <li>
-                                <a href="tel:+919227706516" className="hover:text-purple-400 transition-colors block">+91-9227706516</a>
-                                <a href="tel:02812701665" className="hover:text-purple-400 transition-colors block">0281-2701665</a>
+                                {(data.phones || []).map((phone, i) => (
+                                    <a key={i} href={`tel:${phone.replace(/[^+\d]/g, '')}`} className="hover:text-purple-400 transition-colors block">{phone}</a>
+                                ))}
                             </li>
                         </ul>
                     </AnimateIn>
 
                 </div>
 
-                {/* Bottom Row */}
                 <AnimateIn animation="fade-up" delay={0} className="pt-6 md:pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
                     <p className="text-gray-500 text-sm md:flex-1">
                         &copy; {new Date().getFullYear()} Babu Lime & Minerals. All rights reserved.
