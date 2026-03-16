@@ -22,7 +22,10 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        // On mount: scroll to top and clear any hash without page jump
+        // Disable browser scroll restoration so page always starts at top on reload
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
         if (window.location.hash) {
             history.replaceState(null, '', window.location.pathname);
         }
