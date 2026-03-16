@@ -6,13 +6,13 @@ import { CheckCircle2, ArrowRight, Send, Loader, CheckCircle, AlertCircle, Paper
 import AnimateIn from '@/components/AnimateIn';
 
 const POSITIONS = [
-    { id: 1, title: 'Production Supervisor', location: 'Rajkot', type: 'Full-time' },
-    { id: 2, title: 'Quality Analyst', location: 'Rajkot', type: 'Full-time' },
-    { id: 3, title: 'Sales Executive', location: 'Gujarat Region', type: 'Full-time' },
-    { id: 4, title: 'Packaging Machine Operator', location: 'Rajkot', type: 'Full-time' },
+    { id: 1, title: 'Production Supervisor', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
+    { id: 2, title: 'Quality Analyst', department: 'Quality Assurance', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: true },
+    { id: 3, title: 'Sales Executive — Gujarat Region', department: 'Sales & Distribution', location: 'Gujarat (Multi-City)', type: 'Full-time', isNew: false },
+    { id: 4, title: 'Packaging Machine Operator', department: 'Manufacturing', location: 'Rajkot, Gujarat', type: 'Full-time', isNew: false },
 ];
 
-const VALUES = ['Integrity', 'Continuous Learning', 'Performance Recognition', 'Team Collaboration'];
+const VALUES = ['Integrity', 'Structured Growth', 'Continuous Learning', 'Performance Recognition'];
 
 const EXPERIENCE_OPTIONS = [
     'Fresher (0 years)',
@@ -65,7 +65,7 @@ export default function Careers() {
     };
 
     return (
-        <section id="careers" className="py-12 md:py-24 bg-gray-50">
+        <section id="careers" className="py-12 md:py-24 bg-gray-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
                 {/* Section header */}
@@ -81,7 +81,7 @@ export default function Careers() {
                 <div className="grid lg:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-16">
 
                     {/* Values */}
-                    <AnimateIn animation="fade-left">
+                    <AnimateIn animation="fade-up">
                         <h3 className="text-xl font-bold text-gray-900 mb-5">What We Value</h3>
                         <div className="grid grid-cols-2 gap-4 mb-8">
                             {VALUES.map((val, i) => (
@@ -94,13 +94,14 @@ export default function Careers() {
 
                         <div className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
                             <p className="text-sm text-purple-800 leading-relaxed font-medium">
-                                We believe in structured growth, disciplined operations and long-term team development. Select any open position below and fill out the application form.
+                                Professional environment. Clear systems. Long-term opportunities. Select any open position below and fill out the application form, or send your resume directly to{' '}
+                                <a href="mailto:babulimepvtltd87@gmail.com" className="underline">babulimepvtltd87@gmail.com</a>
                             </p>
                         </div>
                     </AnimateIn>
 
                     {/* Open Positions */}
-                    <AnimateIn animation="fade-right" delay={100}>
+                    <AnimateIn animation="fade-up" delay={100}>
                         <h3 className="text-xl font-bold text-gray-900 mb-5">Open Positions</h3>
                         <div className="space-y-3">
                             {POSITIONS.map((pos, i) => (
@@ -114,12 +115,17 @@ export default function Careers() {
                                     }`}
                                 >
                                     <div>
-                                        <h4 className={`font-bold text-base transition-colors ${form.position === pos.title ? 'text-purple-700' : 'text-gray-900 group-hover:text-purple-700'}`}>
-                                            {pos.title}
-                                        </h4>
+                                        <div className="flex items-center gap-2 flex-wrap">
+                                            <h4 className={`font-bold text-base transition-colors ${form.position === pos.title ? 'text-purple-700' : 'text-gray-900 group-hover:text-purple-700'}`}>
+                                                {pos.title}
+                                            </h4>
+                                            {pos.isNew && (
+                                                <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">New</span>
+                                            )}
+                                        </div>
                                         <div className="flex items-center gap-2 mt-1.5 text-xs text-gray-500">
+                                            <span className="bg-gray-100 px-2.5 py-0.5 rounded-full">{pos.department}</span>
                                             <span className="bg-gray-100 px-2.5 py-0.5 rounded-full">{pos.location}</span>
-                                            <span className="bg-gray-100 px-2.5 py-0.5 rounded-full">{pos.type}</span>
                                         </div>
                                     </div>
                                     <div className={`text-purple-600 transition-all duration-300 ${form.position === pos.title ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0'}`}>

@@ -3,10 +3,10 @@ import { Award, ShieldCheck, CheckSquare, FileText } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
 const CERTS = [
-    { icon: <Award size={40} />, title: 'FSSAI Certified', desc: 'Food safety compliant for food-grade calcium uses.' },
-    { icon: <ShieldCheck size={40} />, title: 'GMP Certified', desc: 'Good Manufacturing Practices stringently followed.' },
-    { icon: <FileText size={40} />, title: 'ISO 9001:2015', desc: 'Internationally recognized quality management systems.' },
-    { icon: <CheckSquare size={40} />, title: 'Internal QA', desc: 'Proprietary multi-tier testing surpassing benchmarks.' }
+    { icon: <Award size={40} />, title: 'FSSAI Standards', desc: 'Fully compliant with Food Safety and Standards Authority of India regulations.' },
+    { icon: <ShieldCheck size={40} />, title: 'Good Manufacturing Practices', desc: 'GMP protocols rigorously followed across all stages of production.' },
+    { icon: <CheckSquare size={40} />, title: 'Internal Quality Assurance', desc: 'Every batch is laboratory tested before market release.' },
+    { icon: <FileText size={40} />, title: 'Batch Traceability', desc: 'Complete traceability from raw material selection to sealed dispatch.' }
 ];
 
 export default function Compliance() {
@@ -16,7 +16,7 @@ export default function Compliance() {
 
                 <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">Quality & Compliance</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">Independently verified excellence you can rely on.</p>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">Quality is non-negotiable. Every batch is laboratory tested before market release.</p>
                 </AnimateIn>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">

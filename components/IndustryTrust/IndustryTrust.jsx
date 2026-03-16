@@ -10,25 +10,25 @@ const TRUST_DATA = [
         id: 1,
         icon: <Crosshair size={24} />,
         title: 'Precision Processing',
-        description: 'Advanced ultra-fine processing and filtering ensures uniform and consistent performance across all batches.'
+        description: 'Advanced ultra-fine grinding technology ensures uniform granulation and smooth texture, delivering consistent product performance.'
     },
     {
         id: 2,
         icon: <ShieldCheck size={24} />,
-        title: '100% Food-Additive Integrity',
-        description: 'No artificial coloring. Every batch undergoes strict laboratory testing before dispatch to guarantee safety.'
+        title: '100% Food-Grade Integrity',
+        description: 'No artificial coloring. No dilution. No adulteration. Every batch undergoes strict in-house quality testing before dispatch.'
     },
     {
         id: 3,
         icon: <Factory size={24} />,
         title: 'Advanced Manufacturing',
-        description: 'Fully Automated Plant with an experienced technical team operating in a Controlled Environment with CCTV-Monitored Operations.'
+        description: 'Fully Automated Plant · Minimal Manual Handling · Controlled Environment · CCTV Monitored Process. All machinery fabricated using stainless steel for food safety compliance.'
     },
     {
         id: 4,
         icon: <TrendingUp size={24} />,
         title: 'Scale & Reliability',
-        description: 'High-volume daily production capacity supported by industrial-scale infrastructure. 80,000+ retail outlets across Gujarat and Expanding Pan-India. Our structured distribution model ensures dependable supply cycles and consistent retailer support.'
+        description: '45+ tons daily capacity. Strong Gujarat network. Expanding through national online marketplaces. Dependable availability and consistent retailer support across India.'
     }
 ];
 

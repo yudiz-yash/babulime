@@ -16,7 +16,7 @@ export default function CTA() {
                 </h2>
 
                 <p className="text-xl md:text-2xl text-purple-100 max-w-2xl mx-auto leading-relaxed">
-                    Partner with Babu Lime for industry-defining purity, reliability, and scale. Committed to sustainable growth and long-term partnerships.
+                    We welcome partnerships from distributors, retailers and institutional buyers across India. Committed to sustainable growth, process excellence and long-term distributor relationships.
                 </p>
 
                 <AnimateIn animation="fade-up" delay={200} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">

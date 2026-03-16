@@ -3,20 +3,20 @@ import AnimateIn from '@/components/AnimateIn';
 
 const MILESTONES = [
     {
-        label: '1985',
+        label: '1987',
         nodeBg: 'bg-white border-purple-50',
         nodeText: 'text-purple-700',
         pulse: true,
-        title: 'Rajkot, Gujarat',
-        desc: 'Founded with a singular commitment to process and deliver natural white lime with taste and purity.',
+        title: 'Founded',
+        desc: 'Babu Lime was founded in Rajkot with a singular mission — to honour India\'s paan tradition by delivering the purest food-grade lime.',
     },
     {
-        label: 'Quality',
+        label: 'Rajkot',
         nodeBg: 'bg-white border-purple-100',
         nodeText: 'text-purple-700',
         pulse: false,
-        title: 'Precision Processing',
-        desc: 'Integration of cutting-edge technology ensuring unmatched consistency and performance over the decades.',
+        title: 'Gujarat, India',
+        desc: 'What began at a single shop in Rajkot grew into a fully automated manufacturing facility combining traditional expertise with modern industrial systems.',
     },
     {
         label: 'Today',
@@ -24,7 +24,7 @@ const MILESTONES = [
         nodeText: 'text-white',
         pulse: false,
         title: 'Pan-India Reach',
-        desc: 'Serving 80,000+ retail outlets across Gujarat, with expanding presence nationwide.',
+        desc: 'Serving over 80,000 retail outlets across India, with an expanding presence through national online marketplaces.',
     },
 ];
 
@@ -35,8 +35,8 @@ export default function TraditionTimeline() {
 
                 <AnimateIn animation="fade-up" delay={0} className="text-center mb-10 md:mb-20">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">Our Legacy</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Rooted in Indian Tradition</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">The use of natural lime has long been part of traditional Indian mouth freshener preparations across generations.</p>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Rooted In Indian Heritage</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">The art of paan preparation is deeply woven into India's cultural fabric — from roadside stalls to grand celebrations, it represents hospitality, craftsmanship and community.</p>
                 </AnimateIn>
 
                 <div className="relative">

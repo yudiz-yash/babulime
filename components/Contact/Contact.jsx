@@ -60,15 +60,16 @@ export default function Contact() {
                                 <div className="flex items-start gap-4">
                                     <div className={styles.infoIcon}><MapPin size={20} /></div>
                                     <div>
-                                        <p className="text-white font-semibold mb-0.5">Our Location</p>
-                                        <p className="text-purple-200 text-sm leading-relaxed">Rajkot, Gujarat, India</p>
+                                        <p className="text-white font-semibold mb-0.5">Manufacturing Unit</p>
+                                        <p className="text-purple-200 text-sm leading-relaxed">Opp. Saurashtra Paper Mill<br />Navagam-Anandpar Road<br />Rajkot – 360003, Gujarat, India</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <div className={styles.infoIcon}><Phone size={20} /></div>
                                     <div>
                                         <p className="text-white font-semibold mb-0.5">Call Us</p>
-                                        <a href="tel:+919227706516" className="text-purple-200 text-sm hover:text-white transition-colors">+91-9227706516</a>
+                                        <a href="tel:+919227706516" className="text-purple-200 text-sm hover:text-white transition-colors block">+91-9227706516</a>
+                                        <a href="tel:02812701665" className="text-purple-200 text-sm hover:text-white transition-colors block">0281-2701665</a>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">

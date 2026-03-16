@@ -1,5 +1,5 @@
 import styles from './Distribution.module.scss';
-import { MapPin, Store, Building2, Map } from 'lucide-react';
+import { MapPin, Store, Map, TrendingUp } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
 export default function Distribution() {
@@ -22,8 +22,8 @@ export default function Distribution() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
                         {[
                             { icon: <Store className="text-purple-600 flex-shrink-0" size={28} />, value: '80,000+', label: 'Retail Outlets', span: false },
-                            { icon: <Building2 className="text-purple-600 flex-shrink-0" size={28} />, value: '4000+', label: 'Wholesale Outlets', span: false },
-                            { icon: <Map className="text-purple-600 flex-shrink-0" size={28} />, value: '60+ Cities', label: 'From regional recognition to large-scale retail branding, Babu Lime maintains strong market visibility nationwide.', span: true },
+                            { icon: <Map className="text-purple-600 flex-shrink-0" size={28} />, value: '60+', label: 'Cities', span: false },
+                            { icon: <TrendingUp className="text-purple-600 flex-shrink-0" size={28} />, value: 'Growing', label: 'Pan-India Access — Dependable availability and consistent retailer support across India.', span: true },
                         ].map((stat, i) => (
                             <AnimateIn key={i} animation="fade-up" delay={i * 100} className={stat.span ? 'sm:col-span-2' : ''}>
                                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4 hover:border-purple-200 hover:shadow-md transition-all duration-300 h-full">

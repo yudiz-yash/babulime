@@ -18,7 +18,7 @@ import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col">
+    <main className="min-h-screen bg-gray-50 flex flex-col overflow-x-hidden w-full">
       <Navbar />
       {/* Banner sits directly under the fixed navbar */}
       <div className="pt-[100px]">

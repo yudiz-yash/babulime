@@ -32,7 +32,7 @@ export default function Footer() {
                             BabuLime
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm pr-4">
-                            Premium grade limestone and calcium carbonate derivatives tailored for superior industrial performance globally.
+                            India's leading processor of food-grade natural white lime. Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India. Since 1987.
                         </p>
 
                         {/* Social follow buttons */}
@@ -55,12 +55,12 @@ export default function Footer() {
                     </AnimateIn>
 
                     <AnimateIn animation="fade-up" delay={100}>
-                        <h4 className="text-lg font-bold mb-6 text-white">Solutions</h4>
+                        <h4 className="text-lg font-bold mb-6 text-white">Products</h4>
                         <ul className="space-y-2 md:space-y-4">
-                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Industrial Grade Quicklime</Link></li>
-                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Chemical Hydrated Lime</Link></li>
-                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Construction Powders</Link></li>
-                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Agricultural Soil Conditioners</Link></li>
+                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Parcel Range (Medium, Ghatta, Achha Safed)</Link></li>
+                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Chunna Paste</Link></li>
+                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Institutional Packs</Link></li>
+                            <li><Link href="#products" className="text-gray-400 hover:text-purple-400 transition-colors text-sm">Bottle & Pan Kit</Link></li>
                         </ul>
                     </AnimateIn>
 
@@ -77,12 +77,13 @@ export default function Footer() {
                     <AnimateIn animation="fade-up" delay={300}>
                         <h4 className="text-lg font-bold mb-6 text-white">Contact</h4>
                         <ul className="space-y-4 text-sm text-gray-400">
-                            <li>Rajkot, Gujarat, India</li>
+                            <li>Opp. Saurashtra Paper Mill,<br />Navagam-Anandpar Road,<br />Rajkot – 360003, Gujarat, India</li>
                             <li className="pt-2">
                                 <a href="mailto:babulimepvtltd87@gmail.com" className="hover:text-purple-400 transition-colors">babulimepvtltd87@gmail.com</a>
                             </li>
                             <li>
-                                <a href="tel:+919227706516" className="hover:text-purple-400 transition-colors">+91-9227706516</a>
+                                <a href="tel:+919227706516" className="hover:text-purple-400 transition-colors block">+91-9227706516</a>
+                                <a href="tel:02812701665" className="hover:text-purple-400 transition-colors block">0281-2701665</a>
                             </li>
                         </ul>
                     </AnimateIn>

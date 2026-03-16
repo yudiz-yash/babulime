@@ -1,14 +1,15 @@
 import styles from './Branding.module.scss';
-import { Newspaper, Trophy, Store, Megaphone, Users } from 'lucide-react';
+import { Newspaper, Trophy, Store, Megaphone, Users, Award } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 import { cat11, cat75, cat76, cat73 } from '@/assets';
 
 const SHOWCASE_ITEMS = [
-    { id: 1, icon: <Newspaper size={28} />, title: 'Media Coverage', desc: 'Featured in regional publications including Gujarat Samachar.' },
-    { id: 2, icon: <Trophy size={28} />, title: 'Sports Sponsorships', desc: 'Brand presence in regional and national-level cricket tournaments across Gujarat.' },
-    { id: 3, icon: <Store size={28} />, title: 'Retail Branding', desc: '80,000+ branded retail points with signage, packaging and point-of-sale displays.' },
-    { id: 4, icon: <Megaphone size={28} />, title: 'Print Campaigns', desc: 'Regional and national print advertising reinforcing category leadership.' },
-    { id: 5, icon: <Users size={28} />, title: 'Community Events', desc: 'Active participation in food industry exhibitions and community events.' }
+    { id: 1, icon: <Newspaper size={28} />, title: 'Press', desc: 'Featured in Gujarat Samachar — recognized for 30 years of excellence in food-grade processing.' },
+    { id: 2, icon: <Trophy size={28} />, title: 'Sports', desc: 'Official branding partner at national-level cricket events across Gujarat.' },
+    { id: 3, icon: <Store size={28} />, title: 'Retail', desc: '80,000+ branded retail points with consistent signage, displays and packaging.' },
+    { id: 4, icon: <Award size={28} />, title: 'Awards', desc: 'Honored for quality standards, manufacturing excellence and business growth.' },
+    { id: 5, icon: <Megaphone size={28} />, title: 'Print Media', desc: 'Regional and national print advertising reinforcing category leadership.' },
+    { id: 6, icon: <Users size={28} />, title: 'Events', desc: 'Active presence at food industry trade shows, community fairs and cultural events.' }
 ];
 
 export default function Branding() {
@@ -18,8 +19,8 @@ export default function Branding() {
 
                 <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16 max-w-3xl mx-auto">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">Brand Showcase</span>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Market Visibility</h2>
-                    <p className="text-lg text-gray-600">From regional recognition to large-scale retail branding, Babu Lime maintains strong market visibility through varied channels.</p>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6">Media & Branding</h2>
+                    <p className="text-lg text-gray-600">From newspaper features to national cricket sponsorships — our brand story at a glance.</p>
                 </AnimateIn>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">

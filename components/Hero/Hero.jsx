@@ -20,7 +20,7 @@ export default function Hero() {
                             Natural White Lime Processing
                         </h1>
                         <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                            Delivering purity, precision and performance since 1985.
+                            Delivering purity, precision and performance since 1987.
                         </p>
                         <p className="text-base text-gray-500">
                             Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India.
@@ -37,7 +37,7 @@ export default function Hero() {
                         {[
                             { icon: <Award size={22} />, end: 30, suffix: '+', label: 'Years' },
                             { icon: <ShieldCheck size={22} />, end: 80, suffix: 'k+', label: 'Retail Outlets' },
-                            { icon: <BarChart2 size={22} />, end: 4000, suffix: '+', label: 'Wholesale Outlets' },
+                            { icon: <BarChart2 size={22} />, end: 45, suffix: '+', label: 'Tons/Day' },
                             { icon: <ArrowRight size={22} />, end: 60, suffix: '+', label: 'Cities' },
                         ].map((stat, i) => (
                             <AnimateIn key={i} animation="scale-in" delay={300 + i * 100}>

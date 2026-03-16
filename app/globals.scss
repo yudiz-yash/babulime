@@ -13,16 +13,28 @@
     --foreground: var(--color-text-dark);
 }
 
-html {
+html,
+body {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
     color: var(--foreground);
     background: var(--background);
     font-family: inherit;
-    overflow-x: hidden;
+}
+
+/* Prevent any child from expanding past viewport width */
+* {
+    min-width: 0;
+}
+
+/* Clip translateX animation overflow at section level */
+section,
+footer {
+    overflow-x: clip;
 }
 
 a, button, [role="button"] {
@@ -105,12 +117,12 @@ a, button, [role="button"] {
 
 /* ── Triggered (in-view) states ──────────────────────── */
 
-.anim-fade-up.in-view    { animation: fadeInUp    0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.anim-fade-down.in-view  { animation: fadeInDown  0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.anim-fade-left.in-view  { animation: fadeInLeft  0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.anim-fade-right.in-view { animation: fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
-.anim-scale-in.in-view   { animation: scaleIn     0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-.anim-fade-in.in-view    { animation: fadeIn      0.8s ease both; }
+.anim-fade-up.in-view    { animation: fadeInUp    0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.anim-fade-down.in-view  { animation: fadeInDown  0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.anim-fade-left.in-view  { animation: fadeInLeft  0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.anim-fade-right.in-view { animation: fadeInRight 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.anim-scale-in.in-view   { animation: scaleIn     0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.anim-fade-in.in-view    { animation: fadeIn      0.8s ease forwards; }
 
 /* ── Continuous animations ──────────────────────────── */
 

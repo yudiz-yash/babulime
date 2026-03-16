@@ -4,10 +4,10 @@ import { about } from '@/assets';
 import AnimateIn from '@/components/AnimateIn';
 
 const CHECK_ITEMS = [
-    'Stainless Steel Processing Infrastructure',
-    'In-House Ultra-Modern Laboratory',
-    'Automated Packaging and Processing Systems',
-    'Batch Control & Traceability Protocols',
+    'Stainless Steel Processing',
+    'Ultra-Modern Laboratory',
+    'Hygienic Packaging',
+    'Batch Traceability',
 ];
 
 export default function About() {
@@ -25,9 +25,9 @@ export default function About() {
                     </div>
 
                     <div className="space-y-4 text-gray-600 leading-relaxed">
-                        <p>Established in 1985, Babu Lime Pvt Ltd is recognized as a leading processor of food additive natural white lime in India.</p>
-                        <p>The company has built one of Gujarat's strongest distribution networks in the lime category, supported by structured supply systems and consistent product performance.</p>
-                        <p>From our fully automated manufacturing facility in Rajkot, Gujarat, we combine traditional expertise with modern industrial systems to ensure purity, taste and reliable supply at scale.</p>
+                        <p>Established over 30 years ago, Babu Lime Pvt Ltd is recognized as a leading processor of food-grade natural white lime in India.</p>
+                        <p>From our fully automated manufacturing facility in Rajkot, Gujarat, we combine traditional expertise with modern industrial systems.</p>
+                        <p>Today, our products are trusted by over <strong className="text-gray-800">80,000 retail outlets</strong> — reinforcing our position as a category authority in food-grade lime processing.</p>
                     </div>
 
                     <div className="flex flex-col gap-4">
@@ -43,7 +43,7 @@ export default function About() {
                         <div className={`mt-8 ${styles.statsBadge} inline-flex items-center gap-4 px-6 py-4`}>
                             <div className="text-3xl font-extrabold text-purple-700">80K+</div>
                             <div className="text-gray-700 font-medium text-sm leading-tight">
-                                Retail Outlets<br />Across Gujarat
+                                Retail Outlets<br />Across India
                             </div>
                         </div>
                     </AnimateIn>
