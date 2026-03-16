@@ -1,3 +1,5 @@
+"use client";
+
 import styles from './Hero.module.scss';
 import { ArrowRight, BarChart2, ShieldCheck, Award } from 'lucide-react';
 import { hero } from '@/assets';
@@ -28,7 +30,10 @@ export default function Hero() {
                     </AnimateIn>
 
                     <AnimateIn animation="fade-up" delay={180} className="flex gap-4">
-                        <button className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-1 active:scale-95">
+                        <button
+                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-1 active:scale-95"
+                        >
                             Discover More <ArrowRight size={18} />
                         </button>
                     </AnimateIn>

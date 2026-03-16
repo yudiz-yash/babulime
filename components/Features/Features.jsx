@@ -35,10 +35,10 @@ export default function Features() {
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">Why Industry Trusts Us</p>
                 </AnimateIn>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 items-stretch">
                     {FEATURE_DATA.map((feature, idx) => (
-                        <AnimateIn key={idx} animation="fade-up" delay={idx * 120}>
-                            <div className={styles.featureCard}>
+                        <AnimateIn key={idx} animation="fade-up" delay={idx * 120} className="h-full">
+                            <div className={`${styles.featureCard} h-full`}>
                                 <div className={styles.iconWrapper}>
                                     {feature.icon}
                                 </div>

@@ -57,7 +57,7 @@ export default function Navbar() {
                                 {label}
                             </button>
                         ))}
-                        <button className={`${styles.ctaButton} anim-pulse-glow`}>
+                        <button onClick={() => scrollToSection('contact')} className={`${styles.ctaButton} anim-pulse-glow`}>
                             Contact Us
                         </button>
                     </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
                             {label}
                         </button>
                     ))}
-                    <button className="w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button onClick={() => { scrollToSection('contact'); setIsOpen(false); }} className="w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
                         Contact Us
                     </button>
                 </div>
