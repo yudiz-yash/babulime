@@ -65,7 +65,7 @@ export default function Branding() {
                     ))}
                 </div>
 
-                <div className="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                {/* <div className="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                     {GALLERY.map((img, i) => (
                         <AnimateIn key={i} animation="fade-up" delay={i * 80}>
                             <div className="aspect-square rounded-xl overflow-hidden border border-gray-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
@@ -77,7 +77,7 @@ export default function Branding() {
                             </div>
                         </AnimateIn>
                     ))}
-                </div>
+                </div> */}
 
             </div>
         </section>

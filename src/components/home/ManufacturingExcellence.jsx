@@ -38,11 +38,6 @@ export function ManufacturingExcellence() {
           <h2 className="text-4xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
             Manufacturing Excellence
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mb-8 pb-10">
-            Our rigorous 5-step process ensures that every gram of Babu Lime
-            meets international quality standards before it reaches the
-            consumer.
-          </p>
           <div className="relative rounded-2xl shadow-lg border-4 border-white dark:border-slate-800 overflow-hidden aspect-square max-w-md">
             <Image
               src={IMAGES.manufacturingProduct}
