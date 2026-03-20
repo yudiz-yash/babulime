@@ -56,6 +56,9 @@ export default function Manufacturing() {
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">{data.badge}</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">{data.heading}</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">All machinery fabricated using stainless steel for food safety compliance.</p>
+                    <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2">Our Vision</h3>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-base">To remain the most trusted name in food-grade lime processing by continuously enhancing manufacturing standards, operational systems and market reach.</p>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-base mt-2">Committed to sustainable growth, process excellence and long-term distributor relationships.</p>
                 </AnimateIn>
 
                 <div className={styles.stepsGrid}>
