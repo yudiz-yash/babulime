@@ -22,6 +22,12 @@ const STATIC = {
     ],
     statBadgeValue: '80K+',
     statBadgeLabel: 'Retail Outlets\nAcross India',
+    distributionNetwork: {
+        subHeading: 'Our Rich',
+        title: 'Distribution Network',
+        bullets: ['80,000+ Retail Outlets', '60+ Cities', 'Strong Gujarat Network', 'Growing Pan-India Access'],
+        description: 'Dependable availability and consistent retailer support across India.',
+    },
 };
 
 export default function About() {
@@ -61,6 +67,24 @@ export default function About() {
                             </AnimateIn>
                         ))}
                     </div>
+
+                    {data.distributionNetwork && (
+                        <AnimateIn animation="fade-up" delay={400}>
+                            <div className="mt-2">
+                                <p className="text-sm font-semibold text-purple-600 uppercase tracking-wider mb-1">{data.distributionNetwork.subHeading}</p>
+                                <h3 className="text-xl font-extrabold text-gray-900 mb-3">{data.distributionNetwork.title}</h3>
+                                <ul className="space-y-2 mb-3">
+                                    {(data.distributionNetwork.bullets || []).map((b, i) => (
+                                        <li key={i} className="flex items-center gap-2 text-gray-700 font-medium">
+                                            <span className="w-2 h-2 rounded-full bg-purple-500 flex-shrink-0"></span>
+                                            {b}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p className="text-gray-600 text-sm leading-relaxed">{data.distributionNetwork.description}</p>
+                            </div>
+                        </AnimateIn>
+                    )}
 
                     <AnimateIn animation="scale-in" delay={450}>
                         <div className={`mt-8 ${styles.statsBadge} inline-flex items-center gap-4 px-6 py-4`}>
