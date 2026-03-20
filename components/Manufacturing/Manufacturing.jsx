@@ -18,6 +18,12 @@ const STATIC = {
     badge: 'MANUFACTURING EXCELLENCE',
     heading: 'Manufacturing Excellence',
     description: 'Engineered for consistency and hygiene at every stage. All machinery fabricated using stainless steel for food safety compliance.',
+    subDescription: 'All machinery fabricated using stainless steel for food safety compliance.',
+    vision: {
+        heading: 'Our Vision',
+        desc1: 'To remain the most trusted name in food-grade lime processing by continuously enhancing manufacturing standards, operational systems and market reach.',
+        desc2: 'Committed to sustainable growth, process excellence and long-term distributor relationships.',
+    },
     steps: [
         { icon: 'Layers',      title: 'Raw Material Selection',   desc: 'Careful selection of materials to ensure baseline quality before processing begins.' },
         { icon: 'Droplets',    title: 'Cleaning & Pre-Processing', desc: 'Thorough removal of impurities and contaminants before main processing.' },
@@ -55,10 +61,10 @@ export default function Manufacturing() {
                 <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">{data.badge}</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">{data.heading}</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">All machinery fabricated using stainless steel for food safety compliance.</p>
-                    <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2">Our Vision</h3>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-base">To remain the most trusted name in food-grade lime processing by continuously enhancing manufacturing standards, operational systems and market reach.</p>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-base mt-2">Committed to sustainable growth, process excellence and long-term distributor relationships.</p>
+                    {data.subDescription && <p className="text-gray-600 max-w-4xl mx-auto text-lg">{data.subDescription}</p>}
+                    {data.vision?.heading && <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2">{data.vision.heading}</h3>}
+                    {data.vision?.desc1 && <p className="text-gray-600 max-w-4xl mx-auto text-base">{data.vision.desc1}</p>}
+                    {data.vision?.desc2 && <p className="text-gray-600 max-w-4xl mx-auto text-base mt-2">{data.vision.desc2}</p>}
                 </AnimateIn>
 
                 <div className={styles.stepsGrid}>
