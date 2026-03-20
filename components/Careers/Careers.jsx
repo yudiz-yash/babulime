@@ -145,6 +145,7 @@ export default function Careers() {
                                 <div>
                                     <h4 className="font-bold text-base text-purple-800">Not listed here?</h4>
                                     <p className="text-sm text-purple-600 mt-0.5">Apply for other opportunities</p>
+                                    <a href="mailto:babulimepvtltd87@gmail.com" className="text-xs text-purple-500 hover:text-purple-700 underline underline-offset-2 mt-1 inline-block">babulimepvtltd87@gmail.com</a>
                                 </div>
                                 <button
                                     onClick={() => handlePosition('Other')}
