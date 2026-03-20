@@ -59,6 +59,7 @@ export function ManufacturingExcellence() {
                 <h4 className="font-bold text-slate-900 dark:text-white">
                   {title}
                 </h4>
+                {/* <p className="text-slate-500 text-sm">{description}</p> */}
               </div>
             </div>
           ))}
