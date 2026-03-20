@@ -55,6 +55,7 @@ export default function Manufacturing() {
                 <AnimateIn animation="fade-up" delay={0} className="text-center mb-8 md:mb-16">
                     <span className="text-purple-600 font-bold tracking-wider uppercase text-sm mb-2 block">{data.badge}</span>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4">{data.heading}</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">All machinery fabricated using stainless steel for food safety compliance.</p>
                 </AnimateIn>
 
                 <div className={styles.stepsGrid}>
