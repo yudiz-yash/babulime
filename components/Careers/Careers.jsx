@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import styles from './Careers.module.scss';
-import { CheckCircle2, ArrowRight, Send, Loader, CheckCircle, AlertCircle, Paperclip, X } from 'lucide-react';
+import { CheckCircle2, Send, Loader, CheckCircle, AlertCircle, Paperclip, X } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
 const STATIC_POSITIONS = [
@@ -102,12 +102,6 @@ export default function Careers() {
                             ))}
                         </div>
 
-                        <div className="bg-purple-50 border border-purple-100 rounded-2xl p-6">
-                            <p className="text-sm text-purple-800 leading-relaxed font-medium">
-                                Professional environment. Clear systems. Long-term opportunities. Select any open position below and fill out the application form, or send your resume directly to{' '}
-                                <a href="mailto:babulimepvtltd87@gmail.com" className="underline">babulimepvtltd87@gmail.com</a>
-                            </p>
-                        </div>
                     </AnimateIn>
 
                     {/* Open Positions */}
@@ -115,18 +109,17 @@ export default function Careers() {
                         <h3 className="text-xl font-bold text-gray-900 mb-5">Open Positions</h3>
                         <div className="space-y-3">
                             {positions.map((pos) => (
-                                <button
+                                <div
                                     key={pos._id}
-                                    onClick={() => handlePosition(pos.title)}
-                                    className={`w-full text-left group border rounded-2xl p-5 transition-all duration-300 flex items-center justify-between gap-4 cursor-pointer ${
+                                    className={`w-full border rounded-2xl p-5 transition-all duration-300 flex items-center justify-between gap-4 ${
                                         form.position === pos.title
                                             ? 'border-purple-400 bg-purple-50 shadow-sm'
-                                            : 'border-gray-100 bg-white hover:border-purple-200 hover:bg-purple-50/50'
+                                            : 'border-gray-100 bg-white'
                                     }`}
                                 >
                                     <div>
                                         <div className="flex items-center gap-2 flex-wrap">
-                                            <h4 className={`font-bold text-base transition-colors ${form.position === pos.title ? 'text-purple-700' : 'text-gray-900 group-hover:text-purple-700'}`}>
+                                            <h4 className={`font-bold text-base ${form.position === pos.title ? 'text-purple-700' : 'text-gray-900'}`}>
                                                 {pos.title}
                                             </h4>
                                             {pos.isNew && (
@@ -138,11 +131,28 @@ export default function Careers() {
                                             <span className="bg-gray-100 px-2.5 py-0.5 rounded-full">{pos.location}</span>
                                         </div>
                                     </div>
-                                    <div className={`text-purple-600 transition-all duration-300 ${form.position === pos.title ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0'}`}>
-                                        <ArrowRight size={20} />
-                                    </div>
-                                </button>
+                                    <button
+                                        onClick={() => handlePosition(pos.title)}
+                                        className="flex-shrink-0 bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold px-4 py-2 rounded-full transition-colors duration-200"
+                                    >
+                                        Apply Now
+                                    </button>
+                                </div>
                             ))}
+
+                            {/* Not listed here box */}
+                            <div className="w-full border-2 border-dashed border-purple-300 bg-purple-50/60 rounded-2xl p-5 flex items-center justify-between gap-4">
+                                <div>
+                                    <h4 className="font-bold text-base text-purple-800">Not listed here?</h4>
+                                    <p className="text-sm text-purple-600 mt-0.5">Apply for other opportunities</p>
+                                </div>
+                                <button
+                                    onClick={() => handlePosition('Other')}
+                                    className="flex-shrink-0 border-2 border-purple-500 text-purple-700 hover:bg-purple-600 hover:text-white text-xs font-bold px-4 py-2 rounded-full transition-colors duration-200"
+                                >
+                                    Apply Now
+                                </button>
+                            </div>
                         </div>
                     </AnimateIn>
                 </div>
