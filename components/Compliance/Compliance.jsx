@@ -42,7 +42,7 @@ export default function Compliance() {
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">{data.description}</p>
                 </AnimateIn>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 ${{ 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2', 3: 'lg:grid-cols-3', 4: 'lg:grid-cols-4' }[(data.items || []).length] || 'lg:grid-cols-4'}`}>
                     {(data.items || []).map((cert, idx) => (
                         <AnimateIn key={idx} animation="scale-in" delay={idx * 110}>
                             <div className={`${styles.certCard} flex flex-col items-center text-center p-5 md:p-8 bg-gray-50 rounded-2xl border border-gray-100 h-full`}>
