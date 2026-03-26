@@ -17,7 +17,6 @@ import CTA from "@/components/CTA/CTA";
 import Footer from "@/components/Footer/Footer";
 import { fetchNoCache } from "@/lib/api";
 
-// Force server-render on every request so visibility/order changes are instant
 export const dynamic = 'force-dynamic';
 
 // Map section keys to their components
