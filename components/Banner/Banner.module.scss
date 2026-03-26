@@ -37,20 +37,19 @@
     object-position: center;
 }
 
-/* ── Hero overlay (first slide only) ────────────────────── */
-.heroOverlayBg {
+/* ── Solid gradient backgrounds for content slides ───────── */
+.heroBg {
     position: absolute;
     inset: 0;
-    /* deep left-to-right gradient so text is legible over any image */
-    background: linear-gradient(
-        100deg,
-        rgba(15, 5, 35, 0.82) 0%,
-        rgba(30, 10, 60, 0.65) 42%,
-        rgba(0, 0, 0, 0.15)    65%,
-        transparent             100%
-    );
-    pointer-events: none;
-    z-index: 1;
+    background: linear-gradient(135deg, #0f0520 0%, #2e0f6e 45%, #4c1d95 75%, #6b21a8 100%);
+    z-index: 0;
+}
+
+.distBg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0a1628 0%, #0f2d5a 40%, #1e3a8a 70%, #1d4ed8 100%);
+    z-index: 0;
 }
 
 .heroOverlay {
@@ -173,6 +172,187 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     white-space: nowrap;
+}
+
+/* ── Distribution slide overlay ─────────────────────────── */
+.distOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    pointer-events: none;
+
+    @media (min-width: 1280px) { padding: 0 7vw; }
+}
+
+.distContent {
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @media (max-width: 640px) { gap: 12px; }
+}
+
+.distBadge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #93c5fd;
+    text-transform: uppercase;
+}
+
+.distHeading {
+    font-size: clamp(1.4rem, 3vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.distDesc {
+    font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    line-height: 1.65;
+}
+
+.distStats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.distStatCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 16px;
+}
+
+.distStatIcon {
+    color: #93c5fd;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.distStatValue {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.distStatLabel {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.distBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 26px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.93rem;
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+    box-shadow: 0 4px 18px rgba(29, 78, 216, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(29, 78, 216, 0.65);
+    }
+}
+
+/* ── Distribution decorative network visual ──────────────── */
+.distVisual {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    display: none;
+
+    @media (min-width: 1024px) { display: block; }
+    @media (min-width: 1280px) { width: 360px; height: 360px; }
+}
+
+.distRing1,
+.distRing2,
+.distRing3 {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(147, 197, 253, 0.25);
+}
+
+.distRing1 { width: 100%; height: 100%; }
+.distRing2 { width: 68%; height: 68%; border-color: rgba(147, 197, 253, 0.35); }
+.distRing3 { width: 38%; height: 38%; border-color: rgba(147, 197, 253, 0.5); }
+
+.distCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #93c5fd;
+
+    span {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+}
+
+.distMapIcon {
+    opacity: 0.9;
+}
+
+.distDot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+    animation: distPulse 2s ease-in-out infinite;
+
+    &:nth-child(5)  { animation-delay: 0.2s; }
+    &:nth-child(6)  { animation-delay: 0.6s; }
+    &:nth-child(7)  { animation-delay: 1.0s; }
+    &:nth-child(8)  { animation-delay: 1.4s; }
+    &:nth-child(9)  { animation-delay: 1.8s; }
+}
+
+@keyframes distPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50%       { transform: scale(1.5); opacity: 1; }
 }
 
 /* subtle gradient at the bottom so the next section blends in */
