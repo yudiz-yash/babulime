@@ -1,35 +1,146 @@
 @use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
 
-.imageWrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/5;
-    border-radius: $radius;
-    overflow: hidden;
-    // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+/* ── Filter tab bar ───────────────────────────────────── */
+.filterBar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    @media (min-width: 768px) {
+        margin-bottom: 48px;
+    }
 }
 
-.decorationSquare {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background-image: radial-gradient($primary 2px, transparent 2px);
-    background-size: 20px 20px;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.statsBadge {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
-    border: 1px solid rgba(124, 58, 237, 0.1);
-    transition: transform 0.3s ease;
+.filterBtn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1.5px solid #e5e7eb;
+    background: #ffffff;
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
 
     &:hover {
-        transform: translateY(-3px);
+        border-color: $primary;
+        color: $primary;
+        background: #faf5ff;
     }
+}
+
+.filterBtnActive {
+    background: $primary !important;
+    border-color: $primary !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+}
+
+/* ── Cards grid ───────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+
+    @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 640px)  { grid-template-columns: 1fr; }
+}
+
+/* ── Card ─────────────────────────────────────────────── */
+.card {
+    background: #ffffff;
+    border: 1.5px solid #f3f4f6;
+    border-radius: 20px;
+    padding: 24px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        border-color: #e5e7eb;
+    }
+}
+
+.tag {
+    display: inline-flex;
+    align-self: flex-start;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    padding: 3px 10px;
+}
+
+.iconBox {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+
+    .card:hover & {
+        transform: scale(1.08);
+    }
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.cardDesc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.65;
+    flex: 1;
+}
+
+.cardAccent {
+    height: 3px;
+    border-radius: 2px;
+    width: 40px;
+    margin-top: auto;
+    opacity: 0.6;
+    transition: width 0.3s ease, opacity 0.3s ease;
+
+    .card:hover & {
+        width: 70px;
+        opacity: 1;
+    }
+}
+
+/* ── Coming soon notice ───────────────────────────────── */
+.comingSoon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: #f9fafb;
+    border: 1.5px dashed #e5e7eb;
+    border-radius: 14px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.comingSoonIcon {
+    flex-shrink: 0;
+    opacity: 0.7;
 }

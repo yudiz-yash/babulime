@@ -106,8 +106,6 @@ export default function Footer() {
                 <AnimateIn animation="fade-up" delay={0} className="pt-6 md:pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
                     <p className="text-gray-500 text-sm md:flex-1">
                         &copy; {new Date().getFullYear()} Babu Lime & Minerals. All rights reserved.
-                        <span className="mx-2 text-gray-700">·</span>
-                        <span className="text-gray-600">FSSAI Lic. No.: 10017021002693</span>
                     </p>
 
                     <div className="flex items-center gap-4">
