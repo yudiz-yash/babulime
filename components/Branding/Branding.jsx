@@ -102,7 +102,7 @@ export default function Branding() {
                         const Icon   = ICON_MAP[item.icon] || Award;
                         const colors = CATEGORY_COLOR[item.category] || CATEGORY_COLOR.Press;
                         return (
-                            <AnimateIn key={`${active}-${i}`} animation="scale-in" delay={i * 80}>
+                            <AnimateIn key={i} animation="scale-in" delay={i * 80}>
                                 <div className={styles.card}>
                                     {/* Category tag */}
                                     <span
