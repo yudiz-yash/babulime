@@ -51,8 +51,6 @@ export default function ProductsPage() {
             .catch(() => {});
     }, []);
 
-    const totalProducts = categories.reduce((sum, c) => sum + c.products.length, 0);
-
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Page Header */}
@@ -64,16 +62,6 @@ export default function ProductsPage() {
                         <p className="text-purple-200 text-lg max-w-2xl">
                             Explore our complete range of lime products — available in retail, wholesale and institutional formats.
                         </p>
-                        <div className={styles.statsRow}>
-                            <div className={styles.statChip}>
-                                <span className={styles.statNum}>{categories.length}</span>
-                                <span className={styles.statLabel}>Categories</span>
-                            </div>
-                            <div className={styles.statChip}>
-                                <span className={styles.statNum}>{totalProducts}</span>
-                                <span className={styles.statLabel}>Products</span>
-                            </div>
-                        </div>
                     </AnimateIn>
                 </div>
             </div>
@@ -82,15 +70,19 @@ export default function ProductsPage() {
             <div className={styles.quickNav}>
                 <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
                     <div className={styles.quickNavInner}>
+                        <span className={styles.quickNavLabel}>Browse:</span>
                         {categories.map((cat) => (
                             <a
                                 key={cat.slug || cat._id}
                                 href={`#cat-${cat.slug || cat._id}`}
                                 className={styles.quickNavPill}
-                                style={{ '--accent': cat.accent }}
+                                style={{ '--accent': cat.accent, '--light': cat.lightBg }}
                             >
+                                <span className={styles.quickNavDot} style={{ background: cat.accent }} />
                                 {cat.shortLabel}
-                                <span className={styles.quickNavCount}>{cat.products.length}</span>
+                                <span className={styles.quickNavCount} style={{ background: cat.lightBg, color: cat.accent }}>
+                                    {cat.products.length}
+                                </span>
                             </a>
                         ))}
                     </div>
