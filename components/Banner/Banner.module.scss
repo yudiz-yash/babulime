@@ -34,6 +34,141 @@
     object-position: center;
 }
 
+/* ── Hero overlay (first slide only) ────────────────────── */
+.heroOverlayBg {
+    position: absolute;
+    inset: 0;
+    /* deep left-to-right gradient so text is legible over any image */
+    background: linear-gradient(
+        100deg,
+        rgba(15, 5, 35, 0.82) 0%,
+        rgba(30, 10, 60, 0.65) 42%,
+        rgba(0, 0, 0, 0.15)    65%,
+        transparent             100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
+
+    @media (min-width: 1280px) { padding: 0 6vw; }
+}
+
+.heroContent {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: 640px) { gap: 12px; }
+}
+
+.heroTitle {
+    font-size: clamp(1.4rem, 3.2vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.heroHighlight {
+    background: linear-gradient(90deg, #c084fc, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.heroSubtitle {
+    font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.heroTagline {
+    font-size: clamp(0.78rem, 1.1vw, 0.95rem);
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.heroBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 11px 26px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.93rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    align-self: flex-start;
+    box-shadow: 0 4px 18px rgba(124, 58, 237, 0.45);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(124, 58, 237, 0.6);
+    }
+}
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    margin-top: 4px;
+
+    @media (max-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.statCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 72px;
+}
+
+.statIcon {
+    color: #c084fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statValue {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
 /* subtle gradient at the bottom so the next section blends in */
 .bottomFade {
     position: absolute;

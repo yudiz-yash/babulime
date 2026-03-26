@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Banner from "@/components/Banner/Banner";
-import Hero from "@/components/Hero/Hero";
 import About from "@/components/About/About";
 import Features from "@/components/Features/Features";
 import TraditionTimeline from "@/components/TraditionTimeline/TraditionTimeline";
@@ -22,7 +21,6 @@ export const dynamic = 'force-dynamic';
 // Map section keys to their components
 const SECTION_COMPONENTS = {
   banner:        Banner,
-  hero:          Hero,
   about:         About,
   features:      Features,
   timeline:      TraditionTimeline,
@@ -40,7 +38,7 @@ const SECTION_COMPONENTS = {
 };
 
 const DEFAULT_ORDER = [
-  'banner', 'hero', 'about', 'features', 'timeline', 'industryTrust',
+  'banner', 'about', 'features', 'timeline', 'industryTrust',
   'manufacturing', 'products', 'compliance', 'certification',
   'distribution', 'branding', 'careers', 'contact', 'cta', 'footer',
 ];
