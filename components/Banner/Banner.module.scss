@@ -84,12 +84,14 @@
 }
 
 .heroImage {
-    max-height: 70%;
+    max-height: 420px;
     width: auto;
-    max-width: 100%;
+    max-width: 80%;
     object-fit: contain;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
     animation: heroFloat 6s ease-in-out infinite;
+
+    @media (min-width: 1280px) { max-height: 460px; max-width: 75%; }
 }
 
 @keyframes heroFloat {
