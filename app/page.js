@@ -7,7 +7,6 @@ import IndustryTrust from "@/components/IndustryTrust/IndustryTrust";
 import Manufacturing from "@/components/Manufacturing/Manufacturing";
 import Compliance from "@/components/Compliance/Compliance";
 import Certification from "@/components/Certification/Certification";
-import Distribution from "@/components/Distribution/Distribution";
 import Branding from "@/components/Branding/Branding";
 import Careers from "@/components/Careers/Careers";
 import Contact from "@/components/Contact/Contact";
@@ -27,7 +26,6 @@ const SECTION_COMPONENTS = {
   manufacturing: Manufacturing,
   compliance:    Compliance,
   certification: Certification,
-  distribution:  Distribution,
   branding:      Branding,
   careers:       Careers,
   contact:       Contact,
@@ -38,7 +36,7 @@ const SECTION_COMPONENTS = {
 const DEFAULT_ORDER = [
   'banner', 'about', 'features', 'timeline', 'industryTrust',
   'manufacturing', 'compliance', 'certification',
-  'distribution', 'branding', 'careers', 'contact', 'cta', 'footer',
+  'branding', 'careers', 'contact', 'cta', 'footer',
 ];
 
 export default async function Home() {

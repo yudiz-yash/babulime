@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import styles from './Branding.module.scss';
-import { Newspaper, Trophy, Store, Megaphone, Users, Award, ImageOff } from 'lucide-react';
+import { Newspaper, Trophy, Store, Megaphone, Users, Award } from 'lucide-react';
 import AnimateIn from '@/components/AnimateIn';
 
 const ICON_MAP = {
@@ -13,8 +13,6 @@ const ICON_MAP = {
     Megaphone: Megaphone,
     Users:     Users,
 };
-
-const FILTERS = ['All', 'Press', 'Sports', 'Retail', 'Awards', 'Events'];
 
 const STATIC = {
     badge: 'Brand Showcase',
@@ -76,8 +74,7 @@ const CATEGORY_COLOR = {
 };
 
 export default function Branding() {
-    const [data, setData]       = useState(STATIC);
-    const [active, setActive]   = useState('All');
+    const [data, setData] = useState(STATIC);
 
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/settings/branding`)
@@ -86,8 +83,7 @@ export default function Branding() {
             .catch(() => {});
     }, []);
 
-    const items = (data.items || []);
-    const filtered = active === 'All' ? items : items.filter(it => it.category === active);
+    const items = data.items || [];
 
     return (
         <section className="py-12 md:py-24 bg-white border-y border-gray-100">
@@ -100,24 +96,9 @@ export default function Branding() {
                     <p className="text-lg text-gray-500">{data.description}</p>
                 </AnimateIn>
 
-                {/* Filter tabs */}
-                <AnimateIn animation="fade-up" delay={80}>
-                    <div className={styles.filterBar}>
-                        {FILTERS.map(f => (
-                            <button
-                                key={f}
-                                onClick={() => setActive(f)}
-                                className={`${styles.filterBtn} ${active === f ? styles.filterBtnActive : ''}`}
-                            >
-                                {f}
-                            </button>
-                        ))}
-                    </div>
-                </AnimateIn>
-
                 {/* Cards grid */}
                 <div className={styles.grid}>
-                    {filtered.map((item, i) => {
+                    {items.map((item, i) => {
                         const Icon   = ICON_MAP[item.icon] || Award;
                         const colors = CATEGORY_COLOR[item.category] || CATEGORY_COLOR.Press;
                         return (
@@ -150,14 +131,6 @@ export default function Branding() {
                         );
                     })}
                 </div>
-
-                {/* Coming soon notice */}
-                <AnimateIn animation="fade-up" delay={200}>
-                    <div className={styles.comingSoon}>
-                        <ImageOff size={20} className={styles.comingSoonIcon} />
-                        <p>Images and media coming soon. Stay tuned.</p>
-                    </div>
-                </AnimateIn>
 
             </div>
         </section>
