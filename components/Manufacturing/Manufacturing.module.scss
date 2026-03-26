@@ -1,121 +1,337 @@
 @use '../../styles/variables' as *;
 
-/* ── Steps grid — 3 columns desktop, 2 tablet, 1 mobile ── */
-.stepsGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
-
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 640px) {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ── Individual step card ─────────────────────────────── */
-.stepCard {
+/* ── Section ─────────────────────────────────────────── */
+.section {
+    padding: 72px 0 80px;
+    background: #0d0821;
     position: relative;
-    background: #ffffff;
-    border: 1.5px solid #f0e9ff;
-    border-radius: 20px;
-    padding: 20px 16px 16px;
+    overflow: hidden;
 
     @media (min-width: 768px) {
-        padding: 32px 28px 28px;
+        padding: 96px 0 104px;
     }
+
+    /* subtle radial glow in background */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 500px;
+        background: radial-gradient(ellipse, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+        pointer-events: none;
+    }
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+    text-align: center;
+    margin-bottom: 56px;
+
+    @media (min-width: 768px) {
+        margin-bottom: 72px;
+    }
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #a78bfa;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.heading {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 14px;
+    line-height: 1.2;
+}
+
+.subDesc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ════════════════════════════════════════════════════
+   DESKTOP PIPELINE  (hidden on mobile)
+   ════════════════════════════════════════════════════ */
+.pipeline {
+    display: none;
+
+    @media (min-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* ── A single horizontal row of 3 steps ─────────────── */
+.pipeRow {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* Row 2: reversed so step 4 is on the right */
+.pipeRowReverse {
+    flex-direction: row-reverse;
+}
+
+/* ── Pipeline node (dot + card below it) ─────────────── */
+.pipeNode {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    height: 100%;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
 
-    &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 48px rgba(124, 58, 237, 0.12);
-        border-color: #c4b5fd;
+/* The numbered dot sitting on the pipe */
+.nodeDot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    box-shadow: 0 0 0 6px rgba(124,58,237,0.18), 0 0 20px rgba(124,58,237,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    flex-shrink: 0;
 
-        .iconBox {
-            background: linear-gradient(135deg, $primary, $secondary);
-            color: #ffffff;
-            transform: scale(1.08);
-        }
+    span {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: #ffffff;
     }
 }
 
-/* ── Step number badge (top-right corner) ─────────────── */
-.stepBadge {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: #c4b5fd;
-    letter-spacing: 0.05em;
-    line-height: 1;
+/* ── Horizontal connector between nodes ─────────────── */
+.hConnector {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+    margin-top: 13px; /* align with center of nodeDot (44px/2 - own height/2) */
+    position: relative;
+    z-index: 1;
 }
 
-/* ── Icon box ─────────────────────────────────────────── */
-.iconBox {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    background: #f3eeff;
-    color: $primary;
+.hLine {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(124,58,237,0.6), rgba(168,85,247,0.9));
+
+    @media (min-width: 1280px) {
+        width: 80px;
+    }
+}
+
+.hArrow {
+    width: 20px;
+    height: 20px;
+    color: #a855f7;
+    flex-shrink: 0;
+}
+
+.hArrowLeft {
+    width: 20px;
+    height: 20px;
+    color: #a855f7;
+    flex-shrink: 0;
+}
+
+/* ── Turn connector (right side, row 1 → row 2) ─────── */
+.turnRight {
+    position: absolute;
+    right: -2px;
+    top: 13px;           /* align with nodeDot center */
+    width: 36px;
+    height: 120px;
+    border-top: 3px solid rgba(168,85,247,0.8);
+    border-right: 3px solid rgba(168,85,247,0.8);
+    border-bottom: 3px solid rgba(168,85,247,0.8);
+    border-radius: 0 16px 16px 0;
+    /* glow */
+    filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));
+}
+
+.turnLeft {
+    position: absolute;
+    left: -2px;
+    top: 13px;
+    width: 36px;
+    height: 120px;
+    border-top: 3px solid rgba(168,85,247,0.8);
+    border-left: 3px solid rgba(168,85,247,0.8);
+    border-bottom: 3px solid rgba(168,85,247,0.8);
+    border-radius: 16px 0 0 16px;
+    filter: drop-shadow(0 0 6px rgba(168,85,247,0.5));
+}
+
+/* ── Step card (desktop) ─────────────────────────────── */
+.stepCard {
+    margin-top: 18px;
+    width: 100%;
+    max-width: 270px;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(124,58,237,0.3);
+    border-radius: 18px;
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        border-color: rgba(168,85,247,0.7);
+        background: rgba(124,58,237,0.1);
+        transform: translateY(-4px);
+    }
+}
+
+.stepNum {
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(124,58,237,0.25);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    position: absolute;
+    top: 14px;
+    right: 16px;
+}
+
+.iconWrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(168,85,247,0.2));
+    border: 1px solid rgba(124,58,237,0.4);
+    color: #c084fc;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ── Step title ───────────────────────────────────────── */
 .stepTitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: $text-dark;
+    color: #f3e8ff;
+    margin: 0;
     line-height: 1.35;
-    margin: 0;
 }
 
-/* ── Step description ─────────────────────────────────── */
 .stepDesc {
-    font-size: 0.875rem;
-    color: $text-muted;
-    line-height: 1.65;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
     margin: 0;
+    line-height: 1.65;
+}
+
+.stepAccent {
+    height: 2px;
+    background: linear-gradient(90deg, #7c3aed, transparent);
+    border-radius: 2px;
+    margin-top: auto;
+}
+
+/* ════════════════════════════════════════════════════
+   MOBILE VERTICAL TIMELINE  (hidden on desktop)
+   ════════════════════════════════════════════════════ */
+.mobileTimeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    @media (min-width: 1024px) {
+        display: none;
+    }
+}
+
+.mobileStep {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.mobileLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+}
+
+.mobileNum {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    box-shadow: 0 0 14px rgba(124,58,237,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.mobileLine {
+    width: 2px;
     flex: 1;
+    min-height: 32px;
+    background: linear-gradient(to bottom, rgba(124,58,237,0.6), rgba(168,85,247,0.2));
+    margin: 6px 0;
 }
 
-/* ── Connector arrow between cards (desktop only) ─────── */
-.connector {
-    display: none;
-
-    @media (min-width: 1025px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: -14px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 24px;
-        height: 24px;
-        color: #c4b5fd;
-        z-index: 1;
-    }
-
-    svg {
-        width: 18px;
-        height: 18px;
-    }
+.mobileCard {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(124,58,237,0.3);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
 }
 
-/* Hide connector at the end of each row */
-.connectorHidden {
-    display: none !important;
+.mobileIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(124,58,237,0.2);
+    border: 1px solid rgba(124,58,237,0.3);
+    color: #c084fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.mobileTitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f3e8ff;
+    margin: 0 0 6px;
+}
+
+.mobileDesc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+    line-height: 1.6;
 }
