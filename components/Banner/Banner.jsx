@@ -8,6 +8,7 @@ import styles from './Banner.module.scss';
 import { ArrowRight, Award, ShieldCheck, BarChart2, Store, Map, TrendingUp } from 'lucide-react';
 import CountUp from '@/components/CountUp/CountUp';
 import {
+    hero as heroImg,
     slide1, slide2, slide3, slide4, slide5, slide6, slide7,
     slide8, slide9, slide10, slide11, slide12, slide13,
 } from '@/assets';
@@ -158,6 +159,15 @@ export default function Banner() {
                                             ))}
                                         </div>
                                     </div>
+
+                                    {/* Right: hero image */}
+                                    <div className={styles.heroImageWrap}>
+                                        <img
+                                            src={heroImg.src}
+                                            alt="Babu Lime Products"
+                                            className={styles.heroImage}
+                                        />
+                                    </div>
                                 </div>
                             )}
 
@@ -197,24 +207,18 @@ export default function Banner() {
                                         </button>
                                     </div>
 
-                                    {/* Right: decorative network visual */}
-                                    <div className={styles.distVisual}>
-                                        <div className={styles.distRing1} />
-                                        <div className={styles.distRing2} />
-                                        <div className={styles.distRing3} />
-                                        <div className={styles.distCenter}>
-                                            <Map size={40} className={styles.distMapIcon} />
-                                            <span>India</span>
-                                        </div>
-                                        {[
-                                            { top: '12%', left: '28%' },
-                                            { top: '28%', left: '72%' },
-                                            { top: '60%', left: '18%' },
-                                            { top: '68%', left: '65%' },
-                                            { top: '82%', left: '42%' },
-                                        ].map((pos, pi) => (
-                                            <div key={pi} className={styles.distDot} style={pos} />
-                                        ))}
+                                    {/* Right: Google Maps */}
+                                    <div className={styles.distMapWrap}>
+                                        <iframe
+                                            title="Babu Lime Location"
+                                            width="100%"
+                                            height="100%"
+                                            style={{ border: 0, display: 'block', pointerEvents: 'auto' }}
+                                            loading="lazy"
+                                            allowFullScreen
+                                            referrerPolicy="no-referrer-when-downgrade"
+                                            src={`https://www.google.com/maps?q=${dist.mapLat || '22.319917062800005'},${dist.mapLng || '70.84248014418061'}&z=15&output=embed`}
+                                        />
                                     </div>
                                 </div>
                             )}

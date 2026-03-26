@@ -56,22 +56,45 @@
     position: absolute;
     inset: 0;
     z-index: 2;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 0 5vw;
-    /* pass through mouse events so slick dots & autoplay work normally */
+    gap: 32px;
     pointer-events: none;
 
-    @media (min-width: 1280px) { padding: 0 6vw; }
+    @media (min-width: 1280px) { padding: 0 7vw; }
+    @media (max-width: 900px)  { grid-template-columns: 1fr; }
 }
 
 .heroContent {
-    max-width: 640px;
     display: flex;
     flex-direction: column;
     gap: 16px;
 
     @media (max-width: 640px) { gap: 12px; }
+}
+
+.heroImageWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 900px) { display: none; }
+}
+
+.heroImage {
+    max-height: 70%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
 }
 
 .heroTitle {
@@ -179,13 +202,15 @@
     position: absolute;
     inset: 0;
     z-index: 2;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: space-between;
     padding: 0 5vw;
+    gap: 32px;
     pointer-events: none;
 
     @media (min-width: 1280px) { padding: 0 7vw; }
+    @media (max-width: 900px)  { grid-template-columns: 1fr; }
 }
 
 .distContent {
@@ -285,74 +310,17 @@
     }
 }
 
-/* ── Distribution decorative network visual ──────────────── */
-.distVisual {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    flex-shrink: 0;
-    display: none;
+/* ── Distribution map ────────────────────────────────────── */
+.distMapWrap {
+    width: 100%;
+    height: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 
-    @media (min-width: 1024px) { display: block; }
-    @media (min-width: 1280px) { width: 360px; height: 360px; }
-}
-
-.distRing1,
-.distRing2,
-.distRing3 {
-    position: absolute;
-    inset: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    border: 1px solid rgba(147, 197, 253, 0.25);
-}
-
-.distRing1 { width: 100%; height: 100%; }
-.distRing2 { width: 68%; height: 68%; border-color: rgba(147, 197, 253, 0.35); }
-.distRing3 { width: 38%; height: 38%; border-color: rgba(147, 197, 253, 0.5); }
-
-.distCenter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    color: #93c5fd;
-
-    span {
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-}
-
-.distMapIcon {
-    opacity: 0.9;
-}
-
-.distDot {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #60a5fa;
-    box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
-    animation: distPulse 2s ease-in-out infinite;
-
-    &:nth-child(5)  { animation-delay: 0.2s; }
-    &:nth-child(6)  { animation-delay: 0.6s; }
-    &:nth-child(7)  { animation-delay: 1.0s; }
-    &:nth-child(8)  { animation-delay: 1.4s; }
-    &:nth-child(9)  { animation-delay: 1.8s; }
-}
-
-@keyframes distPulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50%       { transform: scale(1.5); opacity: 1; }
+    @media (max-width: 900px) { display: none; }
+    @media (min-width: 1280px) { height: 400px; }
 }
 
 /* subtle gradient at the bottom so the next section blends in */
