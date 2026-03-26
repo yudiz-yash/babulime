@@ -109,27 +109,24 @@ export default function Manufacturing() {
                     <div className={`${styles.pipeRow} ${styles.pipeRowReverse}`}>
                         {/* Left turn connector */}
                         <div className={styles.turnLeft} />
-                        {[...row2].reverse().map((step, i) => {
-                            const realIdx = 2 - i; // 2,1,0 → num 6,5,4
-                            return (
-                                <Fragment key={i}>
-                                    {i > 0 && (
-                                        <div className={styles.hConnector}>
-                                            <svg className={styles.hArrowLeft} viewBox="0 0 24 24" fill="none">
-                                                <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            </svg>
-                                            <div className={styles.hLine} />
-                                        </div>
-                                    )}
-                                    <div className={styles.pipeNode}>
-                                        <div className={styles.nodeDot}>
-                                            <span>{realIdx + 4}</span>
-                                        </div>
-                                        <StepCard step={step} num={realIdx + 4} delay={300 + realIdx * 120} />
+                        {row2.map((step, i) => (
+                            <Fragment key={i}>
+                                {i > 0 && (
+                                    <div className={styles.hConnector}>
+                                        <svg className={styles.hArrowLeft} viewBox="0 0 24 24" fill="none">
+                                            <path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                        <div className={styles.hLine} />
                                     </div>
-                                </Fragment>
-                            );
-                        })}
+                                )}
+                                <div className={styles.pipeNode}>
+                                    <div className={styles.nodeDot}>
+                                        <span>{i + 4}</span>
+                                    </div>
+                                    <StepCard step={step} num={i + 4} delay={300 + i * 120} />
+                                </div>
+                            </Fragment>
+                        ))}
                     </div>
                 </div>
 
