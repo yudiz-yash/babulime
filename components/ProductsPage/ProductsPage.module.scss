@@ -1,0 +1,236 @@
+@use '../../styles/variables' as *;
+
+/* ── Page Header ──────────────────────────────────────── */
+.pageHeader {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 60%, #a21caf 100%);
+    padding: 60px 0 56px;
+
+    @media (min-width: 768px) {
+        padding: 80px 0 72px;
+    }
+}
+
+.statsRow {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.statChip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px 24px;
+    min-width: 90px;
+}
+
+.statNum {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #d8b4fe;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+
+/* ── Quick Nav ────────────────────────────────────────── */
+.quickNav {
+    background: #ffffff;
+    border-bottom: 1px solid #f3f4f6;
+    position: sticky;
+    top: 88px;
+    z-index: 40;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.quickNavInner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar { display: none; }
+}
+
+.quickNavPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding: 7px 16px;
+    border-radius: 50px;
+    border: 1.5px solid #e5e7eb;
+    background: #ffffff;
+    color: #6b7280;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+        border-color: var(--accent, #7c3aed);
+        color: var(--accent, #7c3aed);
+        background: #faf7ff;
+    }
+}
+
+.quickNavCount {
+    background: #f3f4f6;
+    color: #9ca3af;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1px 7px;
+}
+
+/* ── Category Section ─────────────────────────────────── */
+.categorySection {
+    scroll-margin-top: 140px;
+}
+
+.categoryHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @media (min-width: 768px) {
+        margin-bottom: 32px;
+    }
+}
+
+.categoryAccentBar {
+    width: 5px;
+    height: 42px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.categoryTitleGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.categoryTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 1.75rem;
+    }
+}
+
+.categoryCount {
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 3px 12px;
+}
+
+/* ── Products Grid ────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1280px) { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px)  { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 480px)  { grid-template-columns: 1fr; }
+}
+
+/* ── Product Card ─────────────────────────────────────── */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1.5px solid #f0e9ff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(124, 58, 237, 0.12);
+        border-color: var(--accent, #7c3aed);
+    }
+}
+
+.imgArea {
+    aspect-ratio: 4 / 3;
+    background: var(--light, #f3eeff);
+    overflow: hidden;
+}
+
+.productImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+
+    .card:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.cardBody {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.cardName {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 3px 9px;
+    white-space: nowrap;
+}
+
+/* ── Section Divider ──────────────────────────────────── */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5e7eb 20%, #e5e7eb 80%, transparent);
+    margin: 48px 0;
+
+    @media (min-width: 768px) {
+        margin: 64px 0;
+    }
+}
