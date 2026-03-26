@@ -5,7 +5,6 @@ import Features from "@/components/Features/Features";
 import TraditionTimeline from "@/components/TraditionTimeline/TraditionTimeline";
 import IndustryTrust from "@/components/IndustryTrust/IndustryTrust";
 import Manufacturing from "@/components/Manufacturing/Manufacturing";
-import Products from "@/components/Products/Products";
 import Compliance from "@/components/Compliance/Compliance";
 import Certification from "@/components/Certification/Certification";
 import Distribution from "@/components/Distribution/Distribution";
@@ -26,7 +25,6 @@ const SECTION_COMPONENTS = {
   timeline:      TraditionTimeline,
   industryTrust: IndustryTrust,
   manufacturing: Manufacturing,
-  products:      Products,
   compliance:    Compliance,
   certification: Certification,
   distribution:  Distribution,
@@ -39,7 +37,7 @@ const SECTION_COMPONENTS = {
 
 const DEFAULT_ORDER = [
   'banner', 'about', 'features', 'timeline', 'industryTrust',
-  'manufacturing', 'products', 'compliance', 'certification',
+  'manufacturing', 'compliance', 'certification',
   'distribution', 'branding', 'careers', 'contact', 'cta', 'footer',
 ];
 
