@@ -12,6 +12,7 @@ import Careers from "@/components/Careers/Careers";
 import Contact from "@/components/Contact/Contact";
 import CTA from "@/components/CTA/CTA";
 import Footer from "@/components/Footer/Footer";
+import HiringPopup from "@/components/HiringPopup/HiringPopup";
 import { fetchNoCache } from "@/lib/api";
 
 export const dynamic = 'force-dynamic';
@@ -65,6 +66,7 @@ export default async function Home() {
           return <Component key={key} />;
         })}
       </div>
+      <HiringPopup />
     </main>
   );
 }
