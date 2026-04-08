@@ -7,6 +7,7 @@ import {
   ManufacturingExcellence,
   ProductPortfolio,
   VisionCTA,
+  CurrentHiring,
 } from "@/components/home";
 import { ContactSection } from "@/components/contact";
 
@@ -21,6 +22,7 @@ export default function Home() {
         <WhyIndustryTrustsUs />
         <ManufacturingExcellence />
         <ProductPortfolio />
+        <CurrentHiring />
         <VisionCTA />
         <ContactSection />
       </main>
