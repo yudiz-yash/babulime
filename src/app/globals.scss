@@ -45,3 +45,96 @@ body {
     padding-block: $space-10;
   }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Height-based responsive: laptop & small desktop screens
+// Reduces padding, font-sizes, gaps, and image heights so each section
+// fits within the viewport without needing to scroll on 900px-height screens.
+// Plain CSS (outside @layer) overrides Tailwind's layered utilities.
+// ─────────────────────────────────────────────────────────────────────────────
+
+@media screen and (max-height: 900px) and (min-width: 1024px) {
+  // Section vertical padding
+  .py-24 { padding-top: 3rem;   padding-bottom: 3rem; }
+  .py-20 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  .py-12 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+
+  // Hero inner container
+  .min-h-\[600px\] { min-height: 80vh; }
+
+  // Section header bottom spacing
+  .mb-16 { margin-bottom: 2rem; }
+  .mb-12 { margin-bottom: 1.5rem; }
+  .pb-10 { padding-bottom: 1.5rem; }
+  .pb-5  { padding-bottom: 0.75rem; }
+  .pt-5  { padding-top: 0.75rem; }
+
+  // Flex / grid gaps
+  .gap-16 { gap: 2.5rem; }
+  .gap-8  { gap: 1.5rem; }
+  .gap-6  { gap: 1rem; }
+
+  // Stacked child spacing
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.25rem; }
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.875rem; }
+
+  // Heading font sizes — desktop responsive variants
+  .lg\:text-7xl { font-size: 3.5rem; line-height: 1.1; }
+  .lg\:text-5xl { font-size: 2.5rem; line-height: 1.1; }
+  .text-4xl     { font-size: 2rem;   line-height: 1.2; }
+  .text-3xl     { font-size: 1.625rem; }
+
+  // Product card images
+  .h-64 { height: 9rem; }
+
+  // Square image containers (About, Manufacturing)
+  .aspect-square { aspect-ratio: 16 / 10; }
+
+  // Card / form internal padding
+  .p-12     { padding: 2rem; }
+  .lg\:p-10 { padding: 1.5rem; }
+  .p-8      { padding: 1.5rem; }
+}
+
+@media screen and (max-height: 768px) and (min-width: 1024px) {
+  // Section vertical padding
+  .py-24 { padding-top: 2rem;   padding-bottom: 2rem; }
+  .py-20 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  .py-12 { padding-top: 1rem;   padding-bottom: 1rem; }
+
+  // Hero inner container
+  .min-h-\[600px\] { min-height: 75vh; }
+
+  // Section header bottom spacing
+  .mb-16 { margin-bottom: 1.5rem; }
+  .mb-12 { margin-bottom: 1rem; }
+  .pb-10 { padding-bottom: 1rem; }
+  .pb-5  { padding-bottom: 0.5rem; }
+  .pt-5  { padding-top: 0.5rem; }
+
+  // Flex / grid gaps
+  .gap-16 { gap: 2rem; }
+  .gap-8  { gap: 1.25rem; }
+  .gap-6  { gap: 0.875rem; }
+
+  // Stacked child spacing
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+  .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+
+  // Heading font sizes
+  .lg\:text-7xl { font-size: 2.75rem; line-height: 1.1; }
+  .lg\:text-5xl { font-size: 2rem;    line-height: 1.1; }
+  .text-4xl     { font-size: 1.75rem; line-height: 1.2; }
+  .text-3xl     { font-size: 1.5rem; }
+
+  // Product card images
+  .h-64 { height: 7rem; }
+
+  // Square image containers
+  .aspect-square { aspect-ratio: 16 / 9; }
+
+  // Card / form internal padding
+  .p-12     { padding: 1.5rem; }
+  .lg\:p-10 { padding: 1.25rem; }
+  .p-8      { padding: 1rem; }
+}
