@@ -179,12 +179,12 @@ export default function ProductsPage() {
                                                     <div className={styles.buyLinks}>
                                                         {PRODUCT_LINKS[prod.name].amazon && (
                                                             <a href={PRODUCT_LINKS[prod.name].amazon} target="_blank" rel="noopener noreferrer" className={styles.buyBtn}>
-                                                                <img src="/amazon-logo.svg" alt="Buy on Amazon" className={styles.buyLogo} />
+                                                                <img src="/amazon-logo.jpg" alt="Buy on Amazon" className={styles.buyLogo} />
                                                             </a>
                                                         )}
                                                         {PRODUCT_LINKS[prod.name].flipkart && (
                                                             <a href={PRODUCT_LINKS[prod.name].flipkart} target="_blank" rel="noopener noreferrer" className={styles.buyBtn}>
-                                                                <img src="/flipkart-logo.svg" alt="Buy on Flipkart" className={styles.buyLogo} />
+                                                                <img src="/flipkart-logo.jpg" alt="Buy on Flipkart" className={styles.buyLogo} />
                                                             </a>
                                                         )}
                                                     </div>
