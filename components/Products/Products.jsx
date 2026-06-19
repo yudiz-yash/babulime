@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Products.module.scss';
 import AnimateIn from '@/components/AnimateIn';
-import { Weight, Layers3 } from 'lucide-react';
+import { Weight, Layers3, ZoomIn, X } from 'lucide-react';
 import {
     cat11, cat12, cat13, cat14,
     cat21, cat22, cat23, cat24,
@@ -45,6 +45,18 @@ function getImageSrc(prod, slug, index) {
 export default function Products() {
     const [categories, setCategories] = useState(STATIC_CATEGORIES);
     const [activeId, setActiveId] = useState(null);
+    const [lightbox, setLightbox] = useState(null);
+
+    useEffect(() => {
+        if (!lightbox) return;
+        const handler = (e) => { if (e.key === 'Escape') setLightbox(null); };
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', handler);
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', handler);
+        };
+    }, [lightbox]);
 
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/products`)
@@ -102,9 +114,17 @@ export default function Products() {
                                             className={styles.card}
                                             style={{ '--accent': active.accent, '--light': active.lightBg }}
                                         >
-                                            <div className={styles.imgArea}>
+                                            <div
+                                                className={styles.imgArea}
+                                                onClick={() => imgSrc && setLightbox({ src: imgSrc, alt: prod.name })}
+                                            >
                                                 {imgSrc ? (
-                                                    <img src={imgSrc} alt={prod.name} className={styles.productImg} />
+                                                    <>
+                                                        <img src={imgSrc} alt={prod.name} className={styles.productImg} />
+                                                        <div className={styles.imgOverlay}>
+                                                            <ZoomIn size={36} color="white" strokeWidth={1.5} />
+                                                        </div>
+                                                    </>
                                                 ) : (
                                                     <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-300 text-xs">No Image</div>
                                                 )}
@@ -132,6 +152,20 @@ export default function Products() {
                     </>
                 )}
             </div>
+
+        {lightbox && (
+            <div className={styles.lightboxBackdrop} onClick={() => setLightbox(null)}>
+                <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>
+                    <X size={22} />
+                </button>
+                <img
+                    src={lightbox.src}
+                    alt={lightbox.alt}
+                    className={styles.lightboxImg}
+                    onClick={(e) => e.stopPropagation()}
+                />
+            </div>
+        )}
         </section>
     );
 }
