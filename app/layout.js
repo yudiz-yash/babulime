@@ -8,9 +8,9 @@ export const metadata = {
   title: "Babu Lime",
   description: "India's trusted authority in food-grade natural white lime processing. Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India.",
   icons: {
-    icon: '/icon.webp',
-    shortcut: '/icon.webp',
-    apple: '/icon.webp',
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
 };
 
