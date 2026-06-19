@@ -86,7 +86,7 @@ export default function Branding() {
     const items = data.items || [];
 
     return (
-        <section className="py-12 md:py-24 bg-white border-y border-gray-100">
+        <section id="branding" className="py-12 md:py-24 bg-white border-y border-gray-100">
             <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
                 {/* Header */}

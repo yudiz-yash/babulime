@@ -15,7 +15,7 @@ const NAV_LINKS = [
     { label: 'About',    id: 'about'    },
     { label: 'Products', id: 'products', href: '/products' },
     { label: 'Quality',  id: 'quality'  },
-    { label: 'Network',  id: 'network'  },
+    { label: 'Network',  id: 'branding' },
 ];
 
 export default function Navbar() {

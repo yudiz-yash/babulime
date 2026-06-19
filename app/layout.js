@@ -5,8 +5,13 @@ import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Babu Lime & Minerals - Production Ready Site",
-  description: "A premium UI matching the design reference for Babu Lime.",
+  title: "Babu Lime",
+  description: "India's trusted authority in food-grade natural white lime processing. Manufactured in Rajkot. Serving Gujarat. Expanding Pan-India.",
+  icons: {
+    icon: '/icon.webp',
+    shortcut: '/icon.webp',
+    apple: '/icon.webp',
+  },
 };
 
 export default function RootLayout({ children }) {
