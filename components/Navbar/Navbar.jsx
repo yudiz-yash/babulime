@@ -3,7 +3,7 @@
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.scss';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { Logo } from '@/assets';
 
 function scrollToSection(id) {
@@ -22,16 +22,21 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
-        // Disable browser scroll restoration so page always starts at top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
-        if (window.location.hash) {
+
+        const hash = window.location.hash;
+        if (hash) {
+            const id = hash.slice(1);
             history.replaceState(null, '', window.location.pathname);
+            setTimeout(() => scrollToSection(id), 100);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
-        window.scrollTo({ top: 0, behavior: 'instant' });
 
         const handleScroll = () => setScrolled(window.scrollY > 24);
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -41,6 +46,8 @@ export default function Navbar() {
     const handleNavClick = (link) => {
         if (link.href) {
             router.push(link.href);
+        } else if (pathname !== '/') {
+            router.push('/#' + link.id);
         } else {
             scrollToSection(link.id);
         }
@@ -70,7 +77,7 @@ export default function Navbar() {
                                 {link.label}
                             </button>
                         ))}
-                        <button onClick={() => scrollToSection('contact')} className={`${styles.ctaButton} anim-pulse-glow`}>
+                        <button onClick={() => handleNavClick({ id: 'contact' })} className={`${styles.ctaButton} anim-pulse-glow`}>
                             Contact Us
                         </button>
                     </div>
@@ -98,7 +105,7 @@ export default function Navbar() {
                             {link.label}
                         </button>
                     ))}
-                    <button onClick={() => { scrollToSection('contact'); setIsOpen(false); }} className="w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
+                    <button onClick={() => { handleNavClick({ id: 'contact' }); setIsOpen(false); }} className="w-full text-left px-3 py-2 text-base font-medium text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
                         Contact Us
                     </button>
                 </div>
