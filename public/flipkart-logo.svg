@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" rx="4" fill="#2874F0"/>
+  <text x="16" y="41" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#ffffff" letter-spacing="-0.5">flipkart</text>
+  <polygon points="158,14 165,22 172,14" fill="#FFE500"/>
+</svg>

@@ -14,6 +14,21 @@ import {
     cat71, cat72, cat73, cat74, cat75, cat76, cat77,
 } from '@/assets';
 
+const PRODUCT_LINKS = {
+    'Medium Parcel Pouch': {
+        amazon:   'https://www.amazon.in/Babu-Lime-Private-Limited-Packets/dp/B088ZLDR8S/',
+        flipkart: 'https://www.flipkart.com/babulime-babu-lime-private-limited-medium-parcel-pouch-5-packets-model-building-kit/p/itm2e57ea1bb9a57',
+    },
+    'Medium Parcel Pouch Bag': {
+        amazon:   'https://www.amazon.in/Babu-Lime-Private-Limited-Packets/dp/B0891ZMRV3/',
+        flipkart: 'https://www.flipkart.com/babulime-babu-lime-private-limited-medium-parcel-pouch-5-packets-model-building-kit/p/itm2e57ea1bb9a57',
+    },
+    'Ghatta Parcel Pouch Bag': {
+        amazon:   'https://www.amazon.in/Babu-Lime-Private-Limited-Packets/dp/B089GTY6GD/',
+        flipkart: 'https://www.flipkart.com/babulime-babu-lime-private-limited-ghata-7-kg-parcel-bag-20-packets-model-building-kit/p/itma3219cf7dd447',
+    },
+};
+
 const LOCAL_IMAGES = {
     medium: [cat11, cat12, cat13, cat14],
     ghatta: [cat21, cat22, cat23, cat24],
@@ -160,6 +175,20 @@ export default function ProductsPage() {
                                                         </span>
                                                     )}
                                                 </div>
+                                                {PRODUCT_LINKS[prod.name] && (
+                                                    <div className={styles.buyLinks}>
+                                                        {PRODUCT_LINKS[prod.name].amazon && (
+                                                            <a href={PRODUCT_LINKS[prod.name].amazon} target="_blank" rel="noopener noreferrer" className={styles.buyBtn}>
+                                                                <img src="/amazon-logo.svg" alt="Buy on Amazon" className={styles.buyLogo} />
+                                                            </a>
+                                                        )}
+                                                        {PRODUCT_LINKS[prod.name].flipkart && (
+                                                            <a href={PRODUCT_LINKS[prod.name].flipkart} target="_blank" rel="noopener noreferrer" className={styles.buyBtn}>
+                                                                <img src="/flipkart-logo.svg" alt="Buy on Flipkart" className={styles.buyLogo} />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </AnimateIn>
