@@ -58,7 +58,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col overflow-x-hidden w-full">
       <Navbar />
-      <div className="pt-[100px]">
+      <div className="pt-[132px]">
         {/* Render sections in stored order, skip hidden ones */}
         {order.map((key) => {
           if (vis[key] === false) return null;
